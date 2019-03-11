@@ -15,6 +15,7 @@ export const PUT_FAILURE = 'PUT_FAILURE';
 export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const SEARCH_POKEMON = "SEARCH_POKEMON";
 
 const pokemonUrl = 'http://localhost:5000';
 
@@ -53,3 +54,7 @@ export const catchPokemon = () => {
       });
   };
 };
+
+export const searchPokemon = e => dispatch => {
+  dispatch({type: SEARCH_POKEMON, payload: e })
+}

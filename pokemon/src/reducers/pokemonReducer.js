@@ -1,4 +1,4 @@
-import { GET_SUCCESS, ADD_SUCCESS, DEL_SUCCESS, PUT_SUCCESS } from '../actions';
+import { GET_SUCCESS, ADD_SUCCESS, DEL_SUCCESS, PUT_SUCCESS, SEARCH_POKEMON } from '../actions';
 
 const initialState = {
   pokemon: [],
@@ -28,6 +28,12 @@ export const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemon: action.payload
       };
+    case SEARCH_POKEMON:
+      return {
+        ...state,
+        pokemon: state.pokemon.filter(poke => poke.Name.includes(action.payload))
+      }
+
     default:
       return state;
   }
