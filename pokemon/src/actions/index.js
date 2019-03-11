@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../authentication/axiosAuth';
 
 export const GET_LOADING = 'GET_LOADING';
 export const GET_SUCCESS = 'GET_SUCCESS';
@@ -12,32 +12,32 @@ export const DEL_FAILURE = 'DEL_FAILURE';
 export const PUT_LOADING = 'PUT_LOADING';
 export const PUT_SUCCESS = 'PUT_SUCCESS';
 export const PUT_FAILURE = 'PUT_FAILURE';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN = "LOGIN";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
-const pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
+const pokemonUrl = 'http://localhost:5000';
 
-// const authUrl = ''
-
-// export const login = credentials => dispatch => {
-//   dispatch({ type: LOGIN });
-//   return axios()
-//       .post('http://localhost:5000/api/login', credentials)
-//       .then(res => {
-//           localStorage.setItem('token', res.data.payload)
-//           dispatch({
-//               type: LOGIN_SUCCESS,
-//               payload: res.data.payload
-//           })
-//       })
-//       .catch(err => {
-//           dispatch({ type: LOGIN_FAILURE, payload: err.response.message })
-//       })
-// }
+export const login = credentials => dispatch => {
+  dispatch({ type: LOGIN });
+  return axios()
+      .post(`${pokemonUrl}/api/login`, credentials)
+      .then(res => {
+          localStorage.setItem('token', res.data.payload)
+          dispatch({
+              type: LOGIN_SUCCESS,
+              payload: res.data.payload
+          })
+      })
+      .catch(err => {
+          dispatch({ type: LOGIN_FAILURE, payload: 'Can not connect to server or check your username/pass' })
+      })
+}
 
 export const catchPokemon = () => {
   return dispatch => {
     dispatch({ type: GET_LOADING });
-    axios
+    axios()
       .get(`${pokemonUrl}`)
 
       .then(res => {
@@ -49,7 +49,7 @@ export const catchPokemon = () => {
         });
       })
       .catch(err => {
-        dispatch({ type: GET_FAILURE, payload: 'No Smurf for you' });
+        dispatch({ type: GET_FAILURE, payload: 'That Pokemon got away!' });
       });
   };
 };
