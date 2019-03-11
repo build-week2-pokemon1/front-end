@@ -12,6 +12,7 @@ export const DEL_FAILURE = 'DEL_FAILURE';
 export const PUT_LOADING = 'PUT_LOADING';
 export const PUT_SUCCESS = 'PUT_SUCCESS';
 export const PUT_FAILURE = 'PUT_FAILURE';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 
 const pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/';
 

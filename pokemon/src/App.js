@@ -9,7 +9,11 @@ class App extends Component {
     this.props.catchPokemon();
   }
   render() {
-    return <div className="App">stuff</div>;
+    return (
+      <div className="App">
+        <h1>MONEY SHOT</h1>
+      </div>
+    );
   }
 }
 
