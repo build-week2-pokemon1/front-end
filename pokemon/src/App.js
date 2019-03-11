@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
+import PokemonList from './components/PokemonList';
 
 import './App.css';
 
@@ -19,13 +20,13 @@ class App extends Component {
             {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
           </li>
         </ul>
-        <h1>Friends App</h1>
+        <h1>Pokemon:</h1>
         <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
         <Route path="/logout/" render={ props => {
           localStorage.clear()
           return (<Redirect to="/login" />)
         }}/>
-        {/* <PrivateRoute path="/pokemonlist" component={PokemonListView} /> */}
+        <PrivateRoute path="/pokemonlist" component={PokemonList} />
         </>
     )
   }

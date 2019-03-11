@@ -38,10 +38,10 @@ export const catchPokemon = () => {
   return dispatch => {
     dispatch({ type: GET_LOADING });
     axios()
-      .get(`${pokemonUrl}`)
+      .get(`${pokemonUrl}/api/pokemon`)
 
       .then(res => {
-        console.log(res);
+        console.log('RES', res);
 
         dispatch({
           type: GET_SUCCESS,
