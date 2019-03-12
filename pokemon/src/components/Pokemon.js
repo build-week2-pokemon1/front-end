@@ -3,7 +3,7 @@ import React from 'react'
 const Pokemon = props => {
     return (
         <div className='pokemon'>
-                <h5>Name: {props.pokemon.Name}</h5>
+                <h4>Name: {props.pokemon.Name}</h4>
                 <h5>Type 1: {props.pokemon["Type 1"]}</h5>
                 <h5>Type 2: {props.pokemon["Type 2"]}</h5>
                 <h5>Total: {props.pokemon.Total}</h5>
@@ -14,7 +14,7 @@ const Pokemon = props => {
                 <h5>Special Defense: {props.pokemon["Sp Def"]}</h5>
                 <h5>Speed: {props.pokemon.Speed}</h5>
                 <h5>Generation: {props.pokemon.Generation}</h5>
-                <h5>Legendary: {props.pokemon.Legendary}</h5>
+                <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
         </div>
     )
 }
