@@ -10,8 +10,9 @@ import Login from './components/Login';
 import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
 import PokeDex from './img/PokeDex.png';
-
+import LogOutIM from './img/logout.png';
 import LoginIM from './img/login.png';
+import SignUp from './img/signup.png';
 import './App.css';
 
 class App extends Component {
@@ -28,10 +29,14 @@ class App extends Component {
                 <LoginImg src={LoginIM} alt="PokeImg" />
               </Link>
             ) : (
-              <Link to="/logout/">Logout</Link>
+              <Link to="/logout/">
+                <LoginOut src={LogOutIM} alt="LogOut" />
+              </Link>
             )}
             {!localStorage.getItem('token') ? (
-              <Link to="/signup/">Sign Up Now</Link>
+              <Link to="/signup/">
+                <SignUpImg2 src={SignUp} alt="" />
+              </Link>
             ) : null}
           </li>
         </ul>
@@ -59,9 +64,16 @@ class App extends Component {
   }
 }
 
+const SignUpImg2 = styled.img`
+  width: 150px;
+`;
+
 const LoginImg = styled.img`
   width: 150px;
-  height: 80px;
+`;
+
+const LoginOut = styled.img`
+  width: 150px;
 `;
 
 const PokeDexImg = styled.img`

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+import Login from '../img/login.png';
+import PokeBall from '../img/Pokeball.png';
 
 const LoginPage = props => {
   const [username, setUsername] = useState('');
@@ -16,24 +19,62 @@ const LoginPage = props => {
           setPassword('');
         }}
       >
-        <input
+        <Input1
           type="text"
-          placeholder="username"
+          placeholder="Username"
           onChange={e => setUsername(e.target.value)}
           name="username"
           value={username}
         />
-        <input
+        <Input2
           type="text"
-          placeholder="password"
+          placeholder="Password"
           onChange={e => setPassword(e.target.value)}
           name="password"
           value={password}
         />
-        <button type="submit">Login</button>
+        <Button1 type="submit">
+          <LoginImg src={Login} alt="" />
+        </Button1>
       </form>
     </div>
   );
 };
+
+const Input1 = styled.input`
+  padding-top: 30px;
+  border-style: none;
+  font-size: 30px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+
+  border-bottom: 1px solid black;
+`;
+
+const Input2 = styled.input`
+  border-style: none;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 90px;
+  text-align: center;
+  border-bottom: 1px solid black;
+`;
+
+const Button1 = styled.button`
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  border-style: none;
+  background-image: url(${PokeBall});
+  background-size: cover;
+  background-color: white;
+  margin: 10px;
+`;
+
+const LoginImg = styled.img`
+  width: 50px;
+`;
 
 export default withRouter(LoginPage);
