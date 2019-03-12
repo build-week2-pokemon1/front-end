@@ -22,12 +22,6 @@ class App extends Component {
             {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
             {!localStorage.getItem('token') ? <Link to="/signup/">Sign Up Now</Link> : null}
 
-            {!localStorage.getItem('token') ? (
-              <Link to="/login/">Login Now</Link>
-            ) : (
-              <Link to="/logout/">Logout</Link>
-            )}
-
           </li>
         </ul>
 
@@ -39,18 +33,6 @@ class App extends Component {
           localStorage.clear()
           return (<Redirect to="/login" />)
         }}/>
-
-        <Route
-          path="/login/"
-          render={props => <Login login={this.props.login} />}
-        />
-        <Route
-          path="/logout/"
-          render={props => {
-            localStorage.clear();
-            return <Redirect to="/login" />;
-          }}
-        />
 
         <PrivateRoute path="/pokemonlist" component={PokemonList} />
       </>
@@ -69,11 +51,3 @@ export default withRouter(connect(
     signUp
   }
 )(App));
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { catchPokemon, login }
-  )(App)
-);
-
