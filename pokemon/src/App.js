@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { catchPokemon, login, signUp } from './actions';
 
@@ -72,6 +72,11 @@ const PokeDexImg = styled.img`
 const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon
 });
+
+App.prototypes = {
+  pokemon: PropTypes.array
+};
+
 
 export default withRouter(
   connect(

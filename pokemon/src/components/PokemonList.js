@@ -6,7 +6,6 @@ import { pokeSelect, pokeCompare } from '../actions';
 import Loader from 'react-loader-spinner';
 
 const PokemonList = props => {
-  console.log('SELECTED', props);
   return (
     <>
       <SearchBar />
