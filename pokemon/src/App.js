@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { catchPokemon, login } from '../src/actions/';
+import { catchPokemon, login, signUp } from './actions';
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
+import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
 import SearchBar from './components/SearchBar';
 
@@ -19,10 +20,12 @@ class App extends Component {
         <ul>
           <li>
             {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
+            {!localStorage.getItem('token') ? <Link to="/signup/">Sign Up Now</Link> : null}
           </li>
         </ul>
         <SearchBar />
         <h1>Pokemon:</h1>
+        <Route path="/signup/" render={ props => <Signup signup={this.props.signUp}/>}/>
         <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
         <Route path="/logout/" render={ props => {
           localStorage.clear()
@@ -41,6 +44,7 @@ const mapStateToProps = state => ({
 export default withRouter(connect(
   mapStateToProps,
   { catchPokemon,
-    login
+    login,
+    signUp
   }
 )(App));
