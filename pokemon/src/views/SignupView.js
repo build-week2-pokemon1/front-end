@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-import PokeBall from '../img/Pokeball.png';
+import PokeBall from '../img/Balls.png';
 import SignUp from '../img/signup.png';
 
 const Signup = props => {
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -22,22 +21,22 @@ const Signup = props => {
         }}
       >
         <Input1
-          type='text'
-          placeholder='username'
+          type="text"
+          placeholder="username"
           onChange={e => setUsername(e.target.value)}
-          name='username'
+          name="username"
           value={username}
         />
         <Input2
-          type='text'
-          placeholder='password'
+          type="text"
+          placeholder="password"
           onChange={e => setPassword(e.target.value)}
-          name='password'
+          name="password"
           value={password}
         />
-            {props.error && <h3>{props.error}</h3>}
-        <Button1 type='submit'>
-          <SignUpImg src={SignUp} alt='signUp' />
+        {props.error && <h3>{props.error}</h3>}
+        <Button1 type="submit">
+          <SignUpImg src={SignUp} alt="signUp" />
         </Button1>
       </form>
     </Container>
@@ -86,4 +85,3 @@ const SignUpImg = styled.img`
 `;
 
 export default withRouter(Signup);
-
