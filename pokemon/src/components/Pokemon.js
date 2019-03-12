@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import PokeBall from '../img/pokeball.png'
+import PokeBallCard from '../img/pokeballcard.png'
 
 const IndPokemon = styled.div`
   border: 1px solid black;
@@ -55,7 +55,7 @@ const Pokemon = props => {
             </TopRow>  
         </TopRow>
         <BottomRow>
-            <PokeBallImg src={PokeBall} alt='pokeball' />
+            <PokeBallImg src={PokeBallCard} alt='pokeball' />
             <PokeStats>
                 <h5>Type 1: {props.pokemon['Type 1']}</h5>
                 <h5>Type 2: {props.pokemon['Type 2']}</h5>

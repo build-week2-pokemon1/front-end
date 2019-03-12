@@ -56,7 +56,7 @@ export const pokemonReducer = (state = initialState, action) => {
           }
           return poke;
         }),
-        selected: !state.selected
+        selected: true
       };
     case POKE_COMPARE:
       return {
