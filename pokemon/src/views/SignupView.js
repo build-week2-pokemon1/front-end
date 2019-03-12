@@ -28,7 +28,7 @@ const Signup = props => {
           value={username}
         />
         <Input2
-          type="text"
+          type="password"
           placeholder="password"
           onChange={e => setPassword(e.target.value)}
           name="password"
