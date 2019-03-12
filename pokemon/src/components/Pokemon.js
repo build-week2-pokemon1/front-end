@@ -6,22 +6,27 @@ const IndPokemon = styled.div`
   border: 1px solid black;
   line-height: 0;
   width: 80%;
+  height: 150px;
   text-align: center;
   margin: 5px;
+  padding: 10px;
 `
 const TopRow = styled.div`
     display: flex;
+    height: 20%;
     flex-flow: row nowrap;
     justify-content: space-around;
+    align-items: center;
 `
 const BottomRow = styled.div`
     display: flex;
+    height: 80%;
     justify-content: space-around;
 `
 const PokeStats = styled.div`
     display:flex;
     width: 70%;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
 
     /* && {
         border: 1px solid black;
