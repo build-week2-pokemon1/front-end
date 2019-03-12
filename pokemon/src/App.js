@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { catchPokemon, login, signUp } from './actions';
+import { login, signUp } from './actions';
 
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
@@ -11,58 +11,74 @@ import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
 
 import PokeDex from './img/PokeDex.png';
+import LogOutIM from './img/logout.png';
 import LoginIM from './img/login.png';
+import SignUp from './img/signup.png';
 
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.catchPokemon();
-  }
   render() {
     return (
       <>
         <ul>
-          <li>
+          <ListStyle>
             {!localStorage.getItem('token') ? (
-              <Link to='/login/'>
-                <LoginImg src={LoginIM} alt='PokeImg' />
+              <Link to="/login/">
+                <LoginImg src={LoginIM} alt="PokeImg" />
               </Link>
             ) : (
-              <Link to='/logout/'>Logout</Link>
+              <Link to="/logout/">
+                <LoginOut src={LogOutIM} alt="LogOut" />
+              </Link>
             )}
             {!localStorage.getItem('token') ? (
-              <Link to='/signup/'>Sign Up Now</Link>
+              <Link to="/signup/">
+                <SignUpImg2 src={SignUp} alt="Signup" />
+              </Link>
             ) : null}
-          </li>
+          </ListStyle>
         </ul>
 
-        <PokeDexImg src={PokeDex} alt='PokeDex' />
+        <PokeDexImg src={PokeDex} alt="PokeDex" />
         <Route
-          path='/signup/'
-          render={props => <Signup signup={this.props.signUp} />}
+          path="/signup/"
+          render={props => (
+            <Signup signup={this.props.signUp} error={this.props.loginError} />
+          )}
         />
         <Route
-          path='/login/'
-          render={props => <Login login={this.props.login} />}
+          path="/login/"
+          render={props => (
+            <Login login={this.props.login} error={this.props.loginError} />
+          )}
         />
         <Route
-          path='/logout/'
+          path="/logout/"
           render={props => {
             localStorage.clear();
-            return <Redirect to='/login' />;
+            return <Redirect to="/login" />;
           }}
         />
 
-        <PrivateRoute path='/pokemonlist' component={PokemonList} />
+        <PrivateRoute path="/pokemonlist" component={PokemonList} />
       </>
     );
   }
 }
+const ListStyle = styled.li`
+  list-style: none;
+`;
+const SignUpImg2 = styled.img`
+  width: 150px;
+`;
 
 const LoginImg = styled.img`
   width: 150px;
-  height: 80px;
+`;
+
+const LoginOut = styled.img`
+  width: 150px;
 `;
 
 const PokeDexImg = styled.img`
@@ -70,12 +86,19 @@ const PokeDexImg = styled.img`
 `;
 
 const mapStateToProps = state => ({
+  loginError: state.userReducer.error,
   pokemon: state.pokemonReducer.pokemon
 });
+
+App.prototypes = {
+  pokemon: PropTypes.array,
+  loginError: PropTypes.string
+};
+
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { catchPokemon, login, signUp }
+    { login, signUp }
   )(App)
 );

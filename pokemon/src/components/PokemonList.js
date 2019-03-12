@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
 
 import SearchBar from './SearchBar';
 import Pokemon from './Pokemon';
-import { pokeSelect, pokeCompare } from '../actions';
 
 const PokemonContainer = styled.div`
   display: flex;
@@ -13,14 +12,34 @@ const PokemonContainer = styled.div`
   align-items: center;
 `
 
-const PokemonList = props => {
-  console.log('SELECTED', props);
+import { pokeSelect, pokeCompare, catchPokemon } from '../actions';
+import PropTypes from 'prop-types';
+import Compare from '../img/compare.png';
+import Pokeball from '../img/Pokeball.png';
+
+import Loader from 'react-loader-spinner';
+
+
+
+
+class PokemonList extends Component {
+    componentDidMount() {
+      this.props.catchPokemon();
+    }
+    render() {
   return (
     <>
       <SearchBar />
-      <button onClick={props.pokeCompare}>Compare Pokemon</button>
-      <PokemonContainer>
-      {props.getting && (
+      <Button1 onClick={this.props.pokeCompare}>
+        <Compare1 src={Compare} alt="Compare" />
+      </Button1>
+
+
+      
+      <div className='pokemonContainer'>
+      {this.props.error && <h3>{this.props.error}</h3>}
+      {this.props.getting && (
+
       <Loader
         type='Puff'
         color='#ff1f1f'
@@ -28,26 +47,54 @@ const PokemonList = props => {
         width='400'
       />
       )}
+
         {props.filtered.length !== 0
           ? props.filtered.map(poke => (
               <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
             ))
           : props.pokemon.map(poke => (
               <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
+
             ))}
       </PokemonContainer>
     </>
   );
+          }
 };
 
 const mapStateToProps = state => ({
+  error: state.pokemonReducer.error,
   filtered: state.pokemonReducer.filtered,
   getting: state.pokemonReducer.getting,
   pokemon: state.pokemonReducer.pokemon,
   selected: state.pokemonReducer.selected,
 });
 
+PokemonList.prototypes = {
+  error: PropTypes.string,
+  filtered: PropTypes.array,
+  getting: PropTypes.boolean,
+  pokemon: PropTypes.array,
+  selected: PropTypes.boolean
+};
+
+const Button1 = styled.button`
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border-style: none;
+  background-image: url(${Pokeball});
+  background-size: cover;
+  background-color: white;
+  margin: 10px;
+  cursor: pointer;
+`;
+
+const Compare1 = styled.img`
+  width: 200px;
+`;
+
 export default connect(
   mapStateToProps,
-  { pokeSelect, pokeCompare }
+  { catchPokemon, pokeSelect, pokeCompare }
 )(PokemonList);
