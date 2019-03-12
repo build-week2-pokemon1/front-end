@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
-import { catchPokemon, login, signUp } from './actions';
+
+import styled from 'styled-components';
+import { catchPokemon, login } from '../src/actions/';
+
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
+import PokeDex from './img/PokeDex.png';
 
+import LoginIM from './img/login.png';
 import './App.css';
 
 class App extends Component {
@@ -25,8 +30,8 @@ class App extends Component {
           </li>
         </ul>
 
-        <h1>Pokemon:</h1>
-
+       
+<PokeDexImg src={PokeDex} alt="PokeDex" />
         <Route path="/signup/" render={ props => <Signup signup={this.props.signUp}/>}/>
         <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
         <Route path="/logout/" render={ props => {
@@ -34,11 +39,21 @@ class App extends Component {
           return (<Redirect to="/login" />)
         }}/>
 
+
         <PrivateRoute path="/pokemonlist" component={PokemonList} />
       </>
     );
   }
 }
+
+const LoginImg = styled.img`
+  width: 150px;
+  height: 80px;
+`;
+
+const PokeDexImg = styled.img`
+  width: 30%;
+`;
 
 const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon
