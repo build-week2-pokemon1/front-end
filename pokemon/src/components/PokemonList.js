@@ -10,6 +10,7 @@ import { pokeSelect, pokeCompare, catchPokemon } from '../actions';
 import PropTypes from 'prop-types';
 import Compare from '../img/compare.png';
 import Pokeball from '../img/Balls.png';
+import './PokemonList.css';
 
 const PokemonContainer = styled.div`
   display: flex;

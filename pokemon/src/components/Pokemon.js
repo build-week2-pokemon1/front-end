@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
-import PokeBallCard from '../img/pokeballcard.png'
+import styled from 'styled-components';
+import PokeBallCard from '../img/pokeballcard.png';
 
 const IndPokemon = styled.div`
   border: 1px solid black;

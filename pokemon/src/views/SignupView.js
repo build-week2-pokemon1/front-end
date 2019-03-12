@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import PokeBall from '../img/Balls.png';
 import SignUp from '../img/signup.png';
 
+import './SignupVIew.css';
+
 const Signup = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -20,6 +22,7 @@ const Signup = props => {
           setPassword('');
         }}
       >
+        {props.error && <h3>{props.error}</h3>}
         <Input1
           type="text"
           placeholder="username"
@@ -34,7 +37,6 @@ const Signup = props => {
           name="password"
           value={password}
         />
-        {props.error && <h3>{props.error}</h3>}
         <Button1 type="submit">
           <SignUpImg src={SignUp} alt="signUp" />
         </Button1>
@@ -56,7 +58,6 @@ const Input1 = styled.input`
   display: block;
   text-align: center;
   margin: 0 auto;
-
   border-bottom: 1px solid black;
 `;
 
@@ -83,5 +84,6 @@ const Button1 = styled.button`
 const SignUpImg = styled.img`
   width: 50px;
 `;
+
 
 export default withRouter(Signup);
