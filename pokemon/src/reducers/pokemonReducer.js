@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   pokemon: [],
+  filtered: [],
   getting: false,
   error: '',
   selected: false
@@ -40,10 +41,8 @@ export const pokemonReducer = (state = initialState, action) => {
     case SEARCH_POKEMON:
       return {
         ...state,
-        pokemon: state.pokemon.filter(poke =>
-          poke.Name.includes(action.payload)
-        )
-      };
+        filtered: state.pokemon.filter(poke => poke.Name.includes(action.payload))
+         };
 
     case POKE_SELECT:
       return {
