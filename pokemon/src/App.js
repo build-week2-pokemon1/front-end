@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
-import { catchPokemon, login, signUp } from '../src/actions/';
+import { catchPokemon, login, signUp } from './actions';
 
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
@@ -9,9 +9,10 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
-import PokeDex from './img/PokeDex.png';
 
+import PokeDex from './img/PokeDex.png';
 import LoginIM from './img/login.png';
+
 import './App.css';
 
 class App extends Component {
@@ -24,36 +25,36 @@ class App extends Component {
         <ul>
           <li>
             {!localStorage.getItem('token') ? (
-              <Link to="/login/">
-                <LoginImg src={LoginIM} alt="PokeImg" />
+              <Link to='/login/'>
+                <LoginImg src={LoginIM} alt='PokeImg' />
               </Link>
             ) : (
-              <Link to="/logout/">Logout</Link>
+              <Link to='/logout/'>Logout</Link>
             )}
             {!localStorage.getItem('token') ? (
-              <Link to="/signup/">Sign Up Now</Link>
+              <Link to='/signup/'>Sign Up Now</Link>
             ) : null}
           </li>
         </ul>
 
-        <PokeDexImg src={PokeDex} alt="PokeDex" />
+        <PokeDexImg src={PokeDex} alt='PokeDex' />
         <Route
-          path="/signup/"
+          path='/signup/'
           render={props => <Signup signup={this.props.signUp} />}
         />
         <Route
-          path="/login/"
+          path='/login/'
           render={props => <Login login={this.props.login} />}
         />
         <Route
-          path="/logout/"
+          path='/logout/'
           render={props => {
             localStorage.clear();
-            return <Redirect to="/login" />;
+            return <Redirect to='/login' />;
           }}
         />
 
-        <PrivateRoute path="/pokemonlist" component={PokemonList} />
+        <PrivateRoute path='/pokemonlist' component={PokemonList} />
       </>
     );
   }
