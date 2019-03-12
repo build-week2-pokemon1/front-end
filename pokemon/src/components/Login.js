@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Login from '../img/login.png';
-import PokeBall from '../img/Pokeball.png';
+import PokeBall from '../img/Balls.png';
 
 const LoginPage = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
     <div>
-        {props.error && <h3>{props.error}</h3>}
+      {props.error && <h3>{props.error}</h3>}
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -20,27 +20,25 @@ const LoginPage = props => {
           setPassword('');
         }}
       >
-
         <Input1
-          type='text'
-          placeholder='username'
-
+          type="text"
+          placeholder="username"
           onChange={e => setUsername(e.target.value)}
-          name='username'
+          name="username"
           value={username}
         />
 
         <Input2
-          type='text'
-          placeholder='password'
-
+          type="text"
+          placeholder="password"
           onChange={e => setPassword(e.target.value)}
-          name='password'
+          name="password"
           value={password}
         />
 
-        <Button1 type='submit'><LoginImg src={Login} alt="" /></Button1>
-
+        <Button1 type="submit">
+          <LoginImg src={Login} alt="" />
+        </Button1>
       </form>
     </div>
   );
