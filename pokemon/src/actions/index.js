@@ -16,10 +16,20 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const PUT_FAILURE = 'PUT_FAILURE';
 export const PUT_LOADING = 'PUT_LOADING';
 export const PUT_SUCCESS = 'PUT_SUCCESS';
+signup
 export const SEARCH_POKEMON = 'SEARCH_POKEMON';
 export const SIGNUP = 'SIGNUP';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+
+
+export const PUT_FAILURE = 'PUT_FAILURE';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const SEARCH_POKEMON = 'SEARCH_POKEMON';
+export const POKE_COMPARE = 'POKE_COMPARE';
+export const POKE_SELECT = 'POKE_SELECT';
 
 
 const pokemonUrl = 'http://localhost:5000';
@@ -44,18 +54,21 @@ export const signUp = credentials => dispatch => {
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN });
   return axios()
-      .post(`${pokemonUrl}/api/login`, credentials)
-      .then(res => {
-          localStorage.setItem('token', res.data.payload)
-          dispatch({
-              type: LOGIN_SUCCESS,
-              payload: res.data.payload
-          })
-      })
-      .catch(err => {
-          dispatch({ type: LOGIN_FAILURE, payload: 'Can not connect to server or check your username/pass' })
-      })
-}
+    .post(`${pokemonUrl}/api/login`, credentials)
+    .then(res => {
+      localStorage.setItem('token', res.data.payload);
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data.payload
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: LOGIN_FAILURE,
+        payload: 'Can not connect to server or check your username/pass'
+      });
+    });
+};
 
 export const catchPokemon = () => {
   return dispatch => {
@@ -78,5 +91,18 @@ export const catchPokemon = () => {
 };
 
 export const searchPokemon = e => dispatch => {
-  dispatch({type: SEARCH_POKEMON, payload: e })
-}
+  dispatch({ type: SEARCH_POKEMON, payload: e });
+};
+
+export const pokeSelect = name => {
+  return {
+    type: POKE_SELECT,
+    payload: name
+  };
+};
+
+export const pokeCompare = () => {
+  return {
+    type: POKE_COMPARE
+  };
+};

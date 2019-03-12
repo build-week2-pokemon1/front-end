@@ -6,7 +6,6 @@ import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
-import SearchBar from './components/SearchBar';
 
 import './App.css';
 
@@ -16,31 +15,53 @@ class App extends Component {
   }
   render() {
     return (
-        <>
+      <>
         <ul>
           <li>
+ signup
             {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
             {!localStorage.getItem('token') ? <Link to="/signup/">Sign Up Now</Link> : null}
+
+            {!localStorage.getItem('token') ? (
+              <Link to="/login/">Login Now</Link>
+            ) : (
+              <Link to="/logout/">Logout</Link>
+            )}
+
           </li>
         </ul>
-        <SearchBar />
+
         <h1>Pokemon:</h1>
+signup
         <Route path="/signup/" render={ props => <Signup signup={this.props.signUp}/>}/>
         <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
         <Route path="/logout/" render={ props => {
           localStorage.clear()
           return (<Redirect to="/login" />)
         }}/>
+
+        <Route
+          path="/login/"
+          render={props => <Login login={this.props.login} />}
+        />
+        <Route
+          path="/logout/"
+          render={props => {
+            localStorage.clear();
+            return <Redirect to="/login" />;
+          }}
+        />
+
         <PrivateRoute path="/pokemonlist" component={PokemonList} />
-        </>
-    )
+      </>
+    );
   }
 }
 
 const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon
 });
-
+ signup
 export default withRouter(connect(
   mapStateToProps,
   { catchPokemon,
@@ -48,3 +69,11 @@ export default withRouter(connect(
     signUp
   }
 )(App));
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { catchPokemon, login }
+  )(App)
+);
+
