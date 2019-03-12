@@ -1,12 +1,6 @@
 import axios from '../authentication/axiosAuth';
 import signupAxios from 'axios';
 
-export const ADD_FAILURE = 'ADD_FAILURE';
-export const ADD_LOADING = 'ADD_LOADING';
-export const ADD_SUCCESS = 'ADD_SUCCESS';
-export const DEL_FAILURE = 'DEL_FAILURE';
-export const DEL_LOADING = 'DEL_LOADING';
-export const DEL_SUCCESS = 'DEL_SUCCESS';
 export const GET_FAILURE = 'GET_FAILURE';
 export const GET_LOADING = 'GET_LOADING';
 export const GET_SUCCESS = 'GET_SUCCESS';
@@ -15,9 +9,6 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const POKE_COMPARE = 'POKE_COMPARE';
 export const POKE_SELECT = 'POKE_SELECT';
-export const PUT_FAILURE = 'PUT_FAILURE';
-export const PUT_LOADING = 'PUT_LOADING';
-export const PUT_SUCCESS = 'PUT_SUCCESS';
 export const SEARCH_POKEMON = 'SEARCH_POKEMON';
 export const SIGNUP = 'SIGNUP';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';

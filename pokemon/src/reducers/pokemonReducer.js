@@ -1,9 +1,6 @@
 import {
   GET_LOADING,
   GET_SUCCESS,
-  ADD_SUCCESS,
-  DEL_SUCCESS,
-  PUT_SUCCESS,
   SEARCH_POKEMON,
   POKE_COMPARE,
   POKE_SELECT
@@ -30,21 +27,6 @@ export const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemon: action.payload,
         getting: false
-      };
-    case ADD_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.payload
-      };
-    case DEL_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.payload
-      };
-    case PUT_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.payload
       };
     case SEARCH_POKEMON:
       return {

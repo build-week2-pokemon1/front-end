@@ -8,14 +8,14 @@ const SearchBar = props => {
   return (
     <form>
       <input
-        type="text"
+        type='text'
         onChange={e => {
           e.preventDefault();
           setSearch(e.target.value);
           props.searchPokemon(e.target.value);
         }}
         value={search}
-        placeholder="&#x1F50D;Search"
+        placeholder='&#x1F50D;Search'
       />
     </form>
   );

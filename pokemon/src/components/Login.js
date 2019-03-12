@@ -17,20 +17,20 @@ const LoginPage = props => {
         }}
       >
         <input
-          type="text"
-          placeholder="username"
+          type='text'
+          placeholder='username'
           onChange={e => setUsername(e.target.value)}
-          name="username"
+          name='username'
           value={username}
         />
         <input
-          type="text"
-          placeholder="password"
+          type='text'
+          placeholder='password'
           onChange={e => setPassword(e.target.value)}
-          name="password"
+          name='password'
           value={password}
         />
-        <button type="submit">Login</button>
+        <button type='submit'>Login</button>
       </form>
     </div>
   );
