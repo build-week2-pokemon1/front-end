@@ -17,6 +17,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const SEARCH_POKEMON = 'SEARCH_POKEMON';
 export const POKE_COMPARE = 'POKE_COMPARE';
+export const POKE_SELECT = 'POKE_SELECT';
 
 const pokemonUrl = 'http://localhost:5000';
 
@@ -63,9 +64,9 @@ export const searchPokemon = e => dispatch => {
   dispatch({ type: SEARCH_POKEMON, payload: e });
 };
 
-export const pokeCompare = name => {
+export const pokeSelect = name => {
   return {
-    type: POKE_COMPARE,
+    type: POKE_SELECT,
     payload: name
   };
 };
