@@ -90,7 +90,8 @@ const mapStateToProps = state => ({
 });
 
 App.prototypes = {
-  pokemon: PropTypes.array
+  pokemon: PropTypes.array,
+  loginError: PropTypes.string
 };
 
 
