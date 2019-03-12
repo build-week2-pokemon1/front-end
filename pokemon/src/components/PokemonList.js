@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
+
 import SearchBar from './SearchBar';
 import Pokemon from './Pokemon';
+
+const PokemonContainer = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+`
+
 import { pokeSelect, pokeCompare, catchPokemon } from '../actions';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Compare from '../img/compare.png';
 import Pokeball from '../img/Pokeball.png';
 
 import Loader from 'react-loader-spinner';
+
 
 
 
@@ -20,7 +30,6 @@ class PokemonList extends Component {
   return (
     <>
       <SearchBar />
-
       <Button1 onClick={this.props.pokeCompare}>
         <Compare1 src={Compare} alt="Compare" />
       </Button1>
@@ -30,6 +39,7 @@ class PokemonList extends Component {
       <div className='pokemonContainer'>
       {this.props.error && <h3>{this.props.error}</h3>}
       {this.props.getting && (
+
       <Loader
         type='Puff'
         color='#ff1f1f'
@@ -38,14 +48,15 @@ class PokemonList extends Component {
       />
       )}
 
-        {this.props.filtered.length !== 0
-          ? this.props.filtered.map(poke => (
-              <Pokemon key={poke.Name} pokemon={poke} />
+        {props.filtered.length !== 0
+          ? props.filtered.map(poke => (
+              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
             ))
-          : this.props.pokemon.map(poke => (
-              <Pokemon key={poke.Name} pokemon={poke} />
+          : props.pokemon.map(poke => (
+              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
+
             ))}
-      </div>
+      </PokemonContainer>
     </>
   );
           }
