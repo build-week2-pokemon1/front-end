@@ -18,9 +18,6 @@ import SignUp from './img/signup.png';
 import './App.css';
 
 class App extends Component {
-  // componentDidMount() {
-  //   this.props.catchPokemon();
-  // }
   render() {
     return (
       <>
