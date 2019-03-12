@@ -25,7 +25,7 @@ class App extends Component {
           <li>
             {!localStorage.getItem('token') ? (
               <Link to="/login/">
-                <LoginImg src={LoginIM}>/</LoginImg>
+                <LoginImg src={LoginIM} alt="PokeImg" />
               </Link>
             ) : (
               <Link to="/logout/">Logout</Link>
