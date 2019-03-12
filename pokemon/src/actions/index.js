@@ -69,7 +69,8 @@ export const catchPokemon = () => {
         });
       })
       .catch(err => {
-        dispatch({ type: GET_FAILURE, payload: 'That Pokemon got away!' });
+        console.log(err);
+        dispatch({ type: GET_FAILURE, payload: err.message });
       });
   };
 };

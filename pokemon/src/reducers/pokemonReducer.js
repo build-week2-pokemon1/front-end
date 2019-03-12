@@ -1,4 +1,5 @@
 import {
+  GET_FAILURE,
   GET_LOADING,
   GET_SUCCESS,
   SEARCH_POKEMON,
@@ -16,17 +17,25 @@ const initialState = {
 
 export const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_FAILURE:
+      return {
+        ...state,
+        getting: false,
+        error: action.payload
+      };
     case GET_LOADING:
       return {
         ...state,
         pokemon: [],
-        getting: true
-      }
+        getting: true,
+        error: ''
+      };
     case GET_SUCCESS:
       return {
         ...state,
         pokemon: action.payload,
-        getting: false
+        getting: false,
+        error: ''
       };
     case SEARCH_POKEMON:
       return {
@@ -35,7 +44,6 @@ export const pokemonReducer = (state = initialState, action) => {
           poke.Name.toLowerCase().includes(action.payload.toLowerCase())
         )
       };
-
     case POKE_SELECT:
       return {
         ...state,
@@ -55,7 +63,6 @@ export const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemon: state.pokemon.filter(poke => poke.selected)
       };
-
     default:
       return state;
   }

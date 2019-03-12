@@ -12,6 +12,7 @@ const PokemonList = props => {
       <SearchBar />
       <button onClick={props.pokeCompare}>Compare Pokemon</button>
       <div className='pokemonContainer'>
+      {props.error && <h3>{props.error}</h3>}
       {props.getting && (
       <Loader
         type='Puff'
@@ -33,6 +34,7 @@ const PokemonList = props => {
 };
 
 const mapStateToProps = state => ({
+  error: state.pokemonReducer.error,
   filtered: state.pokemonReducer.filtered,
   getting: state.pokemonReducer.getting,
   pokemon: state.pokemonReducer.pokemon,
