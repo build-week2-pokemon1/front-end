@@ -40,7 +40,7 @@ class App extends Component {
         <PokeDexImg src={PokeDex} alt='PokeDex' />
         <Route
           path='/signup/'
-          render={props => <Signup signup={this.props.signUp} />}
+          render={props => <Signup signup={this.props.signUp} error={this.props.loginError} />}
         />
         <Route
           path='/login/'

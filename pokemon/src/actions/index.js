@@ -30,7 +30,7 @@ export const signUp = credentials => dispatch => {
     .catch(err => {
       dispatch({
         type: SIGNUP_FAILURE,
-        payload: 'Can not complete signup, please try again'
+        payload: err.message
       });
     });
 };
