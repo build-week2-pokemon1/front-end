@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <>
         <ul>
-          <listStyle>
+          <ListStyle>
             {!localStorage.getItem('token') ? (
               <Link to="/login/">
                 <LoginImg src={LoginIM} alt="PokeImg" />
@@ -40,7 +40,7 @@ class App extends Component {
                 <SignUpImg2 src={SignUp} alt="Signup" />
               </Link>
             ) : null}
-          </listStyle>
+          </ListStyle>
         </ul>
 
         <PokeDexImg src={PokeDex} alt="PokeDex" />
@@ -69,7 +69,7 @@ class App extends Component {
     );
   }
 }
-const listStyle = styled.li`
+const ListStyle = styled.li`
   list-style: none;
 `;
 const SignUpImg2 = styled.img`
