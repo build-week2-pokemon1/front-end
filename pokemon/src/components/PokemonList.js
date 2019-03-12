@@ -6,7 +6,10 @@ import Pokemon from './Pokemon'
 
 const PokemonList = props => {
   return (
-    props.pokemon.map(poke => <Pokemon key={poke.name} pokemon={poke} />)
+    <div className="pokemonContainer">
+      {props.pokemon.map(poke => <Pokemon key={poke.Name} pokemon={poke} />)}
+    </div>
+    
   )
 }
         
