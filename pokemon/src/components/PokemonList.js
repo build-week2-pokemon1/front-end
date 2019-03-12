@@ -9,8 +9,8 @@ import { pokeSelect, pokeCompare } from '../actions';
 
 const PokemonContainer = styled.div`
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column wrap;
+  align-items: center;
 `
 
 const PokemonList = props => {
