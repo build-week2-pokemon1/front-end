@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import PokeBallCard from '../img/pokeballcard.png';
 
 const IndPokemon = styled.div`
+  position: relative;
+
   border: 1px solid black;
   line-height: 0;
   width: 80%;
@@ -10,66 +12,68 @@ const IndPokemon = styled.div`
   text-align: center;
   margin: 5px;
   padding: 10px;
-`
+  overflow: hidden;
+`;
 const TopRow = styled.div`
-    display: flex;
-    height: 20%;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-`
+  display: flex;
+  height: 20%;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+`;
 const BottomRow = styled.div`
-    display: flex;
-    height: 80%;
-    justify-content: space-around;
-`
+  display: flex;
+  height: 80%;
+  justify-content: space-around;
+`;
 const PokeStats = styled.div`
-    display:flex;
-    width: 70%;
-    flex-flow: column wrap;
+  display: flex;
+  width: 70%;
+  flex-flow: column wrap;
 
-    /* && {
+  /* && {
         border: 1px solid black;
     } */
-`
+`;
 const PokeBallImg = styled.img`
-    opacity: 0.6;
-    width:20%;
-    height:auto;
-    
-`
-
+  position: absolute;
+  left: -80px;
+  opacity: 0.6;
+  width: 20%;
+  height: auto;
+  overflow: hidden;
+`;
 
 const Pokemon = props => {
   return (
     <IndPokemon>
+      <PokeBallImg src={PokeBallCard} alt="pokeball" />
+      <TopRow>
+        <h4>Name: {props.pokemon.Name}</h4>
         <TopRow>
-            <h4>Name: {props.pokemon.Name}</h4>
-            <TopRow>
-                <h5>Select</h5>
-                <input
-                    onClick={() => props.pokeSelect(props.pokemon.Name)}
-                    type="checkbox"
-                    id="selected"
-                    />
-            </TopRow>  
+          <h5>Select</h5>
+          <input
+            onClick={() => props.pokeSelect(props.pokemon.Name)}
+            type="checkbox"
+            id="selected"
+          />
         </TopRow>
-        <BottomRow>
-            <PokeBallImg src={PokeBallCard} alt='pokeball' />
-            <PokeStats>
-                <h5>Type 1: {props.pokemon['Type 1']}</h5>
-                <h5>Type 2: {props.pokemon['Type 2']}</h5>
-                <h5>Total: {props.pokemon.Total}</h5>
-                <h5>HP: {props.pokemon.HP}</h5>
-                <h5>Attack: {props.pokemon.Attack}</h5>
-                <h5>Defense: {props.pokemon.Defense}</h5>
-                <h5>Special Attack: {props.pokemon['Sp Atk']}</h5>
-                <h5>Special Defense: {props.pokemon['Sp Def']}</h5>
-                <h5>Speed: {props.pokemon.Speed}</h5>
-                <h5>Generation: {props.pokemon.Generation}</h5>
-                <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
-            </PokeStats>
-        </BottomRow>
+      </TopRow>
+      <BottomRow>
+        <PokeStats>
+          <h5>Type 1: {props.pokemon['Type 1']}</h5>
+          <h5>Type 2: {props.pokemon['Type 2']}</h5>
+          <h5>Total: {props.pokemon.Total}</h5>
+          <h5>HP: {props.pokemon.HP}</h5>
+          <h5>Attack: {props.pokemon.Attack}</h5>
+          <h5>Defense: {props.pokemon.Defense}</h5>
+          <h5>Special Attack: {props.pokemon['Sp Atk']}</h5>
+          <h5>Special Defense: {props.pokemon['Sp Def']}</h5>
+          <h5>Speed: {props.pokemon.Speed}</h5>
+          <h5>Generation: {props.pokemon.Generation}</h5>
+          <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
+        </PokeStats>
+      </BottomRow>
     </IndPokemon>
   );
 };
