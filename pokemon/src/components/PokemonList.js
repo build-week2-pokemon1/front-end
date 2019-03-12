@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 import Pokemon from './Pokemon';
 import { pokeSelect, pokeCompare } from '../actions';
-
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Compare from '../img/compare.png';
 import Pokeball from '../img/Pokeball.png';
@@ -19,7 +19,7 @@ const PokemonList = props => {
       <Button1 onClick={props.pokeCompare}>
         <Compare1 src={Compare} alt="Compare" />
       </Button1>
-     
+
 
       
       <div className='pokemonContainer'>
@@ -52,6 +52,14 @@ const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon,
   selected: state.pokemonReducer.selected,
 });
+
+PokemonList.prototypes = {
+  error: PropTypes.string,
+  filtered: PropTypes.array,
+  getting: PropTypes.boolean,
+  pokemon: PropTypes.array,
+  selected: PropTypes.boolean
+};
 
 const Button1 = styled.button`
   border-radius: 50%;

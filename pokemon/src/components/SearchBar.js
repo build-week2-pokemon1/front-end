@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { searchPokemon } from '../actions';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const SearchBar = props => {
   const [search, setSearch] = useState('');
@@ -39,6 +40,10 @@ const Input1 = styled.input`
 
   border-bottom: 1px solid black;
 `;
+
+SearchBar.prototypes = {
+  pokemon: PropTypes.array
+};
 
 export default connect(
   mapStateToProps,
