@@ -18,7 +18,7 @@ class App extends Component {
       <>
         <ul>
           <li>
- signup
+
             {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
             {!localStorage.getItem('token') ? <Link to="/signup/">Sign Up Now</Link> : null}
 
@@ -32,7 +32,7 @@ class App extends Component {
         </ul>
 
         <h1>Pokemon:</h1>
-signup
+
         <Route path="/signup/" render={ props => <Signup signup={this.props.signUp}/>}/>
         <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
         <Route path="/logout/" render={ props => {
@@ -61,7 +61,7 @@ signup
 const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon
 });
- signup
+
 export default withRouter(connect(
   mapStateToProps,
   { catchPokemon,

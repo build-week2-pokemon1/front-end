@@ -13,23 +13,15 @@ export const GET_SUCCESS = 'GET_SUCCESS';
 export const LOGIN = 'LOGIN';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const POKE_COMPARE = 'POKE_COMPARE';
+export const POKE_SELECT = 'POKE_SELECT';
 export const PUT_FAILURE = 'PUT_FAILURE';
 export const PUT_LOADING = 'PUT_LOADING';
 export const PUT_SUCCESS = 'PUT_SUCCESS';
-signup
 export const SEARCH_POKEMON = 'SEARCH_POKEMON';
 export const SIGNUP = 'SIGNUP';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
-
-
-export const PUT_FAILURE = 'PUT_FAILURE';
-export const LOGIN = 'LOGIN';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
-export const SEARCH_POKEMON = 'SEARCH_POKEMON';
-export const POKE_COMPARE = 'POKE_COMPARE';
-export const POKE_SELECT = 'POKE_SELECT';
 
 
 const pokemonUrl = 'http://localhost:5000';
