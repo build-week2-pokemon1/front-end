@@ -30,10 +30,10 @@ const PokemonList = props => {
       )}
         {props.filtered.length !== 0
           ? props.filtered.map(poke => (
-              <Pokemon key={poke.Name} pokemon={poke} />
+              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
             ))
           : props.pokemon.map(poke => (
-              <Pokemon key={poke.Name} pokemon={poke} />
+              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
             ))}
       </PokemonContainer>
     </>

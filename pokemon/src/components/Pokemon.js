@@ -16,17 +16,21 @@ const TopRow = styled.div`
 `
 const BottomRow = styled.div`
     display: flex;
+    justify-content: space-around;
 `
 const PokeStats = styled.div`
     display:flex;
     width: 70%;
     flex-flow: row wrap;
 
-    && {
+    /* && {
         border: 1px solid black;
-    }
+    } */
 `
 const PokeBallImg = styled.img`
+    opacity: 0.6;
+    width:20%;
+    height:auto;
     
 `
 
