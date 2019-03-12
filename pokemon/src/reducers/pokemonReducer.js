@@ -1,4 +1,5 @@
 import {
+  GET_LOADING,
   GET_SUCCESS,
   ADD_SUCCESS,
   DEL_SUCCESS,
@@ -18,10 +19,17 @@ const initialState = {
 
 export const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_LOADING:
+      return {
+        ...state,
+        pokemon: [],
+        getting: true
+      }
     case GET_SUCCESS:
       return {
         ...state,
-        pokemon: action.payload
+        pokemon: action.payload,
+        getting: false
       };
     case ADD_SUCCESS:
       return {
