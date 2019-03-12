@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+
 import styled from 'styled-components';
 import { catchPokemon, login } from '../src/actions/';
+
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
+import Signup from './views/SignupView';
 import PokemonList from './components/PokemonList';
 import PokeDex from './img/PokeDex.png';
 
@@ -20,28 +23,23 @@ class App extends Component {
       <>
         <ul>
           <li>
-            {!localStorage.getItem('token') ? (
-              <Link to="/login/">
-                <LoginImg src={LoginIM} alt="login" />
-              </Link>
-            ) : (
-              <Link to="/logout/">Logout</Link>
-            )}
+
+            {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
+            {!localStorage.getItem('token') ? <Link to="/signup/">Sign Up Now</Link> : null}
+
           </li>
         </ul>
 
-        <PokeDexImg src={PokeDex} alt="PokeDex" />
-        <Route
-          path="/login/"
-          render={props => <Login login={this.props.login} />}
-        />
-        <Route
-          path="/logout/"
-          render={props => {
-            localStorage.clear();
-            return <Redirect to="/login" />;
-          }}
-        />
+       
+<PokeDexImg src={PokeDex} alt="PokeDex" />
+        <Route path="/signup/" render={ props => <Signup signup={this.props.signUp}/>}/>
+        <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
+        <Route path="/logout/" render={ props => {
+          localStorage.clear()
+          return (<Redirect to="/login" />)
+        }}/>
+
+
         <PrivateRoute path="/pokemonlist" component={PokemonList} />
       </>
     );
@@ -61,9 +59,10 @@ const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon
 });
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { catchPokemon, login }
-  )(App)
-);
+export default withRouter(connect(
+  mapStateToProps,
+  { catchPokemon,
+    login,
+    signUp
+  }
+)(App));
