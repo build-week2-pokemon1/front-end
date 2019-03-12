@@ -6,6 +6,7 @@ const LoginPage = props => {
   const [password, setPassword] = useState('');
   return (
     <div>
+        {props.error && <h3>{props.error}</h3>}
       <form
         onSubmit={e => {
           e.preventDefault();

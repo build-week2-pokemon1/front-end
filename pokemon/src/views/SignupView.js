@@ -7,9 +7,10 @@ const Signup = props => {
     return (
         <div>
             <h1>Signup</h1>
+            {props.error && <h3>{props.error}</h3>}
                 <form onSubmit={(e) => {
                     e.preventDefault();
-                    props.signUp({ username, password })
+                    props.signup({ username, password })
                     .then(() => {
                         props.history.push('/Login');
                     })

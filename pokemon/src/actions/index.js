@@ -30,7 +30,7 @@ export const signUp = credentials => dispatch => {
     .catch(err => {
       dispatch({
         type: SIGNUP_FAILURE,
-        payload: 'Can not complete signup, please try again'
+        payload: err.message
       });
     });
 };
@@ -49,7 +49,7 @@ export const login = credentials => dispatch => {
     .catch(err => {
       dispatch({
         type: LOGIN_FAILURE,
-        payload: 'Can not connect to server or check your username/pass'
+        payload: err.message
       });
     });
 };
@@ -69,7 +69,8 @@ export const catchPokemon = () => {
         });
       })
       .catch(err => {
-        dispatch({ type: GET_FAILURE, payload: 'That Pokemon got away!' });
+        console.log(err);
+        dispatch({ type: GET_FAILURE, payload: err.message });
       });
   };
 };
