@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import PokeBall from '../img/pokeball.png'
 
 const IndPokemon = styled.div`
   border: 1px solid black;
@@ -13,14 +14,22 @@ const TopRow = styled.div`
     flex-flow: row nowrap;
     justify-content: space-around;
 `
+const BottomRow = styled.div`
+    display: flex;
+`
 const PokeStats = styled.div`
     display:flex;
+    width: 70%;
     flex-flow: row wrap;
 
     && {
         border: 1px solid black;
     }
 `
+const PokeBallImg = styled.img`
+    
+`
+
 
 const Pokemon = props => {
   return (
@@ -36,19 +45,22 @@ const Pokemon = props => {
                     />
             </TopRow>  
         </TopRow>
-        <PokeStats>
-            <h5>Type 1: {props.pokemon['Type 1']}</h5>
-            <h5>Type 2: {props.pokemon['Type 2']}</h5>
-            <h5>Total: {props.pokemon.Total}</h5>
-            <h5>HP: {props.pokemon.HP}</h5>
-            <h5>Attack: {props.pokemon.Attack}</h5>
-            <h5>Defense: {props.pokemon.Defense}</h5>
-            <h5>Special Attack: {props.pokemon['Sp Atk']}</h5>
-            <h5>Special Defense: {props.pokemon['Sp Def']}</h5>
-            <h5>Speed: {props.pokemon.Speed}</h5>
-            <h5>Generation: {props.pokemon.Generation}</h5>
-            <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
-        </PokeStats>
+        <BottomRow>
+            <PokeBallImg src={PokeBall} alt='pokeball' />
+            <PokeStats>
+                <h5>Type 1: {props.pokemon['Type 1']}</h5>
+                <h5>Type 2: {props.pokemon['Type 2']}</h5>
+                <h5>Total: {props.pokemon.Total}</h5>
+                <h5>HP: {props.pokemon.HP}</h5>
+                <h5>Attack: {props.pokemon.Attack}</h5>
+                <h5>Defense: {props.pokemon.Defense}</h5>
+                <h5>Special Attack: {props.pokemon['Sp Atk']}</h5>
+                <h5>Special Defense: {props.pokemon['Sp Def']}</h5>
+                <h5>Speed: {props.pokemon.Speed}</h5>
+                <h5>Generation: {props.pokemon.Generation}</h5>
+                <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
+            </PokeStats>
+        </BottomRow>
     </IndPokemon>
   );
 };
