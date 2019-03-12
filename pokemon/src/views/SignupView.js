@@ -6,6 +6,7 @@ import PokeBall from '../img/Pokeball.png';
 import SignUp from '../img/signup.png';
 
 const Signup = props => {
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -34,6 +35,7 @@ const Signup = props => {
           name="password"
           value={password}
         />
+            {props.error && <h3>{props.error}</h3>}
         <Button1 type="submit">
           <SignUpImg src={SignUp} alt="signUp" />
         </Button1>
@@ -84,3 +86,4 @@ const SignUpImg = styled.img`
 `;
 
 export default withRouter(Signup);
+

@@ -1,8 +1,7 @@
 import {
+  GET_FAILURE,
+  GET_LOADING,
   GET_SUCCESS,
-  ADD_SUCCESS,
-  DEL_SUCCESS,
-  PUT_SUCCESS,
   SEARCH_POKEMON,
   POKE_COMPARE,
   POKE_SELECT
@@ -18,25 +17,25 @@ const initialState = {
 
 export const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_FAILURE:
+      return {
+        ...state,
+        getting: false,
+        error: action.payload
+      };
+    case GET_LOADING:
+      return {
+        ...state,
+        pokemon: [],
+        getting: true,
+        error: ''
+      };
     case GET_SUCCESS:
       return {
         ...state,
-        pokemon: action.payload
-      };
-    case ADD_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.payload
-      };
-    case DEL_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.payload
-      };
-    case PUT_SUCCESS:
-      return {
-        ...state,
-        pokemon: action.payload
+        pokemon: action.payload,
+        getting: false,
+        error: ''
       };
     case SEARCH_POKEMON:
       return {
@@ -45,7 +44,6 @@ export const pokemonReducer = (state = initialState, action) => {
           poke.Name.toLowerCase().includes(action.payload.toLowerCase())
         )
       };
-
     case POKE_SELECT:
       return {
         ...state,
@@ -65,7 +63,6 @@ export const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemon: state.pokemon.filter(poke => poke.selected)
       };
-
     default:
       return state;
   }

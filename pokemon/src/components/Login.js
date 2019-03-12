@@ -9,6 +9,7 @@ const LoginPage = props => {
   const [password, setPassword] = useState('');
   return (
     <div>
+        {props.error && <h3>{props.error}</h3>}
       <form
         onSubmit={e => {
           e.preventDefault();
@@ -19,23 +20,27 @@ const LoginPage = props => {
           setPassword('');
         }}
       >
-        <Input1
-          type="text"
-          placeholder="Username"
+
+        <input
+          type='text'
+          placeholder='username'
+
           onChange={e => setUsername(e.target.value)}
-          name="username"
+          name='username'
           value={username}
         />
-        <Input2
-          type="text"
-          placeholder="Password"
+
+        <input
+          type='text'
+          placeholder='password'
+
           onChange={e => setPassword(e.target.value)}
-          name="password"
+          name='password'
           value={password}
         />
-        <Button1 type="submit">
-          <LoginImg src={Login} alt="" />
-        </Button1>
+
+        <button type='submit'>Login</button>
+
       </form>
     </div>
   );
