@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
-import { catchPokemon, login } from '../src/actions/';
+import { catchPokemon, login, signUp } from '../src/actions/';
 
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
@@ -23,22 +23,35 @@ class App extends Component {
       <>
         <ul>
           <li>
-
-            {!localStorage.getItem('token') ? <Link to="/login/">Login Now</Link> : <Link to="/logout/">Logout</Link>}
-            {!localStorage.getItem('token') ? <Link to="/signup/">Sign Up Now</Link> : null}
-
+            {!localStorage.getItem('token') ? (
+              <Link to="/login/">
+                <LoginImg src={LoginIM}>/</LoginImg>
+              </Link>
+            ) : (
+              <Link to="/logout/">Logout</Link>
+            )}
+            {!localStorage.getItem('token') ? (
+              <Link to="/signup/">Sign Up Now</Link>
+            ) : null}
           </li>
         </ul>
 
-       
-<PokeDexImg src={PokeDex} alt="PokeDex" />
-        <Route path="/signup/" render={ props => <Signup signup={this.props.signUp}/>}/>
-        <Route path="/login/" render={ props => <Login login={this.props.login}/>}/>
-        <Route path="/logout/" render={ props => {
-          localStorage.clear()
-          return (<Redirect to="/login" />)
-        }}/>
-
+        <PokeDexImg src={PokeDex} alt="PokeDex" />
+        <Route
+          path="/signup/"
+          render={props => <Signup signup={this.props.signUp} />}
+        />
+        <Route
+          path="/login/"
+          render={props => <Login login={this.props.login} />}
+        />
+        <Route
+          path="/logout/"
+          render={props => {
+            localStorage.clear();
+            return <Redirect to="/login" />;
+          }}
+        />
 
         <PrivateRoute path="/pokemonlist" component={PokemonList} />
       </>
@@ -59,10 +72,9 @@ const mapStateToProps = state => ({
   pokemon: state.pokemonReducer.pokemon
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  { catchPokemon,
-    login,
-    signUp
-  }
-)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { catchPokemon, login, signUp }
+  )(App)
+);
