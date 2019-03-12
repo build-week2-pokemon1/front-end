@@ -32,13 +32,13 @@ class App extends Component {
               </Link>
             ) : (
 
-              <Link to="/logout/">
-                <LoginOut src={LogOutIM} alt="LogOut" />
+              <Link to='/logout/'>
+                <LoginOut src={LogOutIM} alt='LogOut' />
               </Link>
             )}
             {!localStorage.getItem('token') ? (
-              <Link to="/signup/">
-                <SignUpImg2 src={SignUp} alt="" />
+              <Link to='/signup/'>
+                <SignUpImg2 src={SignUp} alt='Signup' />
               </Link>
 
             ) : null}

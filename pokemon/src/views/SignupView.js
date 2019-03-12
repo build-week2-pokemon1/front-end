@@ -22,22 +22,22 @@ const Signup = props => {
         }}
       >
         <Input1
-          type="text"
-          placeholder="username"
+          type='text'
+          placeholder='username'
           onChange={e => setUsername(e.target.value)}
-          name="username"
+          name='username'
           value={username}
         />
         <Input2
-          type="text"
-          placeholder="password"
+          type='text'
+          placeholder='password'
           onChange={e => setPassword(e.target.value)}
-          name="password"
+          name='password'
           value={password}
         />
             {props.error && <h3>{props.error}</h3>}
-        <Button1 type="submit">
-          <SignUpImg src={SignUp} alt="signUp" />
+        <Button1 type='submit'>
+          <SignUpImg src={SignUp} alt='signUp' />
         </Button1>
       </form>
     </Container>
