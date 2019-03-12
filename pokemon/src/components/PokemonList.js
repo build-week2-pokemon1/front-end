@@ -1,9 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
+import styled from 'styled-components';
+
 import SearchBar from './SearchBar';
 import Pokemon from './Pokemon';
 import { pokeSelect, pokeCompare } from '../actions';
-import Loader from 'react-loader-spinner';
+
+const PokemonContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+`
 
 const PokemonList = props => {
   console.log('SELECTED', props);
@@ -11,7 +19,7 @@ const PokemonList = props => {
     <>
       <SearchBar />
       <button onClick={props.pokeCompare}>Compare Pokemon</button>
-      <div className='pokemonContainer'>
+      <PokemonContainer>
       {props.getting && (
       <Loader
         type='Puff'
@@ -27,7 +35,7 @@ const PokemonList = props => {
           : props.pokemon.map(poke => (
               <Pokemon key={poke.Name} pokemon={poke} />
             ))}
-      </div>
+      </PokemonContainer>
     </>
   );
 };

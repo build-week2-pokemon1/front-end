@@ -1,8 +1,24 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const IndPokemon = styled.div`
+  border: 1px solid black;
+  line-height: 0;
+  width: 30%;
+  text-align: center;
+  margin: 5px;
+`
 
 const Pokemon = props => {
   return (
-    <div className='pokemon'>
+    <IndPokemon>
+      <span>Select</span>
+      <input
+        onClick={() => props.pokeSelect(props.pokemon.Name)}
+        type="checkbox"
+        id="selected"
+        
+        /> 
       <h4>Name: {props.pokemon.Name}</h4>
       <h5>Type 1: {props.pokemon['Type 1']}</h5>
       <h5>Type 2: {props.pokemon['Type 2']}</h5>
@@ -15,7 +31,7 @@ const Pokemon = props => {
       <h5>Speed: {props.pokemon.Speed}</h5>
       <h5>Generation: {props.pokemon.Generation}</h5>
       <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
-    </div>
+    </IndPokemon>
   );
 };
 
