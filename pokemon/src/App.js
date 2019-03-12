@@ -44,7 +44,7 @@ class App extends Component {
         />
         <Route
           path='/login/'
-          render={props => <Login login={this.props.login} />}
+          render={props => <Login login={this.props.login} error={this.props.loginError} />}
         />
         <Route
           path='/logout/'
@@ -70,6 +70,7 @@ const PokeDexImg = styled.img`
 `;
 
 const mapStateToProps = state => ({
+  loginError: state.userReducer.error,
   pokemon: state.pokemonReducer.pokemon
 });
 
