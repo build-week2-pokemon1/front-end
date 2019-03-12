@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { catchPokemon, login, signUp } from './actions';
+import { login, signUp } from './actions';
 
 import { connect } from 'react-redux';
 import { Route, Link, withRouter, Redirect } from 'react-router-dom';
@@ -18,9 +18,9 @@ import SignUp from './img/signup.png';
 import './App.css';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.catchPokemon();
-  }
+  // componentDidMount() {
+  //   this.props.catchPokemon();
+  // }
   render() {
     return (
       <>
@@ -102,6 +102,6 @@ App.prototypes = {
 export default withRouter(
   connect(
     mapStateToProps,
-    { catchPokemon, login, signUp }
+    { login, signUp }
   )(App)
 );
