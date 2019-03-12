@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Login from '../img/login.png';
 import PokeBall from '../img/Balls.png';
+import './Login.css';
 
 const LoginPage = props => {
   const [username, setUsername] = useState('');
