@@ -19,7 +19,7 @@ export const userReducer = (state = initialState, action) => {
         token: action.payload,
         error: ''
       };
-    case SIGNUP_SUCCESS:
+    case SIGNUP_FAILURE:
       return {
         ...state,
         token: '',
