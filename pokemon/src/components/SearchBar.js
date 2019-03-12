@@ -10,9 +10,9 @@ const SearchBar = props => {
             <input 
                 type="text"
                 onChange={(e) => {
-                    e.preventDefault();
+                    e.preventDefault()
                     setSearch(e.target.value)
-                    props.searchPokemon(search)
+                    props.searchPokemon(e.target.value)
                     
                 }} 
                 value={search}
