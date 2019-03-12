@@ -27,7 +27,7 @@ const pokemonUrl = 'http://localhost:5000';
 
 export const signUp = credentials => dispatch => {
   dispatch({ type: SIGNUP });
-  return axios
+  return signupAxios
       .post(`${pokemonUrl}/api/register`, credentials)
       .then(res => {
           localStorage.setItem('token', res.data.token)
