@@ -59,17 +59,13 @@ export const catchPokemon = () => {
     dispatch({ type: GET_LOADING });
     axios()
       .get(`${pokemonUrl}/api/pokemon`)
-
       .then(res => {
-        console.log('RES', res);
-
         dispatch({
           type: GET_SUCCESS,
           payload: res.data
         });
       })
       .catch(err => {
-        console.log(err);
         dispatch({ type: GET_FAILURE, payload: err.message });
       });
   };
