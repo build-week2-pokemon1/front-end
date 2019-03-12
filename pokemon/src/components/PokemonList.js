@@ -6,20 +6,19 @@ import styled from 'styled-components';
 import SearchBar from './SearchBar';
 import Pokemon from './Pokemon';
 
-const PokemonContainer = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-`
 
 import { pokeSelect, pokeCompare, catchPokemon } from '../actions';
 import PropTypes from 'prop-types';
 import Compare from '../img/compare.png';
 import Pokeball from '../img/Pokeball.png';
 
-import Loader from 'react-loader-spinner';
 
 
+const PokemonContainer = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+`
 
 
 class PokemonList extends Component {
@@ -29,14 +28,14 @@ class PokemonList extends Component {
     render() {
   return (
     <>
+
       <SearchBar />
+      {this.props.selected &&
       <Button1 onClick={this.props.pokeCompare}>
         <Compare1 src={Compare} alt="Compare" />
-      </Button1>
-
-
+      </Button1>}
       
-      <div className='pokemonContainer'>
+      <PokemonContainer>
       {this.props.error && <h3>{this.props.error}</h3>}
       {this.props.getting && (
 
@@ -48,12 +47,12 @@ class PokemonList extends Component {
       />
       )}
 
-        {props.filtered.length !== 0
-          ? props.filtered.map(poke => (
-              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
+        {this.props.filtered.length !== 0
+          ? this.props.filtered.map(poke => (
+              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={this.props.pokeSelect} />
             ))
-          : props.pokemon.map(poke => (
-              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={props.pokeSelect} />
+          : this.props.pokemon.map(poke => (
+              <Pokemon key={poke.Name} pokemon={poke} pokeSelect={this.props.pokeSelect} />
 
             ))}
       </PokemonContainer>
