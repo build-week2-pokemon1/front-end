@@ -23,25 +23,26 @@ export const SIGNUP = 'SIGNUP';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 
-
 const pokemonUrl = 'http://localhost:5000';
-
 
 export const signUp = credentials => dispatch => {
   dispatch({ type: SIGNUP });
   return signupAxios
-      .post(`${pokemonUrl}/api/register`, credentials)
-      .then(res => {
-          localStorage.setItem('token', res.data.token)
-          dispatch({
-              type: SIGNUP_SUCCESS,
-              payload: res.data.token
-          })
-      })
-      .catch(err => {
-          dispatch({ type: SIGNUP_FAILURE, payload: 'Can not complete signup, please try again' })
-      })
-}
+    .post(`${pokemonUrl}/api/register`, credentials)
+    .then(res => {
+      localStorage.setItem('token', res.data.token);
+      dispatch({
+        type: SIGNUP_SUCCESS,
+        payload: res.data.token
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: SIGNUP_FAILURE,
+        payload: 'Can not complete signup, please try again'
+      });
+    });
+};
 
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN });

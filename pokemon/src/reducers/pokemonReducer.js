@@ -41,8 +41,10 @@ export const pokemonReducer = (state = initialState, action) => {
     case SEARCH_POKEMON:
       return {
         ...state,
-        filtered: state.pokemon.filter(poke => poke.Name.toLowerCase().includes(action.payload.toLowerCase()))
-         };
+        filtered: state.pokemon.filter(poke =>
+          poke.Name.toLowerCase().includes(action.payload.toLowerCase())
+        )
+      };
 
     case POKE_SELECT:
       return {
