@@ -1,10 +1,19 @@
-import { GET_SUCCESS, ADD_SUCCESS, DEL_SUCCESS, PUT_SUCCESS, SEARCH_POKEMON } from '../actions';
+import {
+  GET_SUCCESS,
+  ADD_SUCCESS,
+  DEL_SUCCESS,
+  PUT_SUCCESS,
+  SEARCH_POKEMON,
+  POKE_COMPARE,
+  POKE_SELECT
+} from '../actions';
 
 const initialState = {
   pokemon: [],
   filtered: [],
   getting: false,
-  error: ''
+  error: '',
+  selected: false
 };
 
 export const pokemonReducer = (state = initialState, action) => {
@@ -33,7 +42,27 @@ export const pokemonReducer = (state = initialState, action) => {
       return {
         ...state,
         filtered: state.pokemon.filter(poke => poke.Name.includes(action.payload))
-      }
+         };
+
+    case POKE_SELECT:
+      return {
+        ...state,
+        pokemon: state.pokemon.map(poke => {
+          if (poke.Name === action.payload) {
+            return {
+              ...poke,
+              selected: true
+            };
+          }
+          return poke;
+        }),
+        selected: !state.selected
+      };
+    case POKE_COMPARE:
+      return {
+        ...state,
+        pokemon: state.pokemon.filter(poke => poke.selected)
+      };
 
     default:
       return state;

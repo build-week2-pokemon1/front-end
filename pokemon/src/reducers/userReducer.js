@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS } from '../actions';
+import { LOGIN_SUCCESS, SIGNUP_SUCCESS, SIGNUP_FAILURE } from '../actions';
 
 const initialState = {
   token: '',
@@ -12,6 +12,18 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         token: action.payload,
         error: ''
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        token: action.payload,
+        error: ''
+      };
+    case SIGNUP_FAILURE:
+      return {
+        ...state,
+        token: '',
+        error: action.payload
       };
     default:
       return state;
