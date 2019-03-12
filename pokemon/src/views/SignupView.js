@@ -14,7 +14,7 @@ const Signup = props => {
       <form
         onSubmit={e => {
           e.preventDefault();
-          props.signUp({ username, password }).then(() => {
+          props.signup({ username, password }).then(() => {
             props.history.push('/Login');
           });
           setUsername('');
