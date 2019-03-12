@@ -7,15 +7,16 @@ import { pokeSelect, pokeCompare } from '../actions';
 const PokemonList = props => {
   console.log('SELECTED', props);
   return (
-    
+   <>
+    <SearchBar />
+    <button onClick={props.pokeCompare}>Compare Pokemon</button>
     <div className="pokemonContainer">
-      <SearchBar />
-      <button onClick={props.pokeCompare}>Compare Pokemon</button>
       {(props.filtered.length !== 0)
         ? props.filtered.map(poke => <Pokemon key={poke.Name} pokemon={poke} />) 
         : props.pokemon.map(poke => <Pokemon key={poke.Name} pokemon={poke} />)
          }
     </div>
+   </> 
   );
 };
 
