@@ -21,7 +21,7 @@ const LoginPage = props => {
         }}
       >
 
-        <input
+        <Input1
           type='text'
           placeholder='username'
 
@@ -30,7 +30,7 @@ const LoginPage = props => {
           value={username}
         />
 
-        <input
+        <Input2
           type='text'
           placeholder='password'
 
@@ -39,7 +39,7 @@ const LoginPage = props => {
           value={password}
         />
 
-        <button type='submit'>Login</button>
+        <Button1 type='submit'><LoginImg src={Login} alt="" /></Button1>
 
       </form>
     </div>

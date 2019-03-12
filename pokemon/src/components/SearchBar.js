@@ -9,7 +9,7 @@ const SearchBar = props => {
   return (
     <form>
 
-      <input
+      <Input1
         type='text'
 
         onChange={e => {
