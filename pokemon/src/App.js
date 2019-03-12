@@ -25,49 +25,53 @@ class App extends Component {
     return (
       <>
         <ul>
-          <li>
+          <listStyle>
             {!localStorage.getItem('token') ? (
-              <Link to='/login/'>
-                <LoginImg src={LoginIM} alt='PokeImg' />
+              <Link to="/login/">
+                <LoginImg src={LoginIM} alt="PokeImg" />
               </Link>
             ) : (
-
-              <Link to='/logout/'>
-                <LoginOut src={LogOutIM} alt='LogOut' />
+              <Link to="/logout/">
+                <LoginOut src={LogOutIM} alt="LogOut" />
               </Link>
             )}
             {!localStorage.getItem('token') ? (
-              <Link to='/signup/'>
-                <SignUpImg2 src={SignUp} alt='Signup' />
+              <Link to="/signup/">
+                <SignUpImg2 src={SignUp} alt="Signup" />
               </Link>
-
             ) : null}
-          </li>
+          </listStyle>
         </ul>
 
-        <PokeDexImg src={PokeDex} alt='PokeDex' />
+        <PokeDexImg src={PokeDex} alt="PokeDex" />
         <Route
-          path='/signup/'
-          render={props => <Signup signup={this.props.signUp} error={this.props.loginError} />}
+          path="/signup/"
+          render={props => (
+            <Signup signup={this.props.signUp} error={this.props.loginError} />
+          )}
         />
         <Route
-          path='/login/'
-          render={props => <Login login={this.props.login} error={this.props.loginError} />}
+          path="/login/"
+          render={props => (
+            <Login login={this.props.login} error={this.props.loginError} />
+          )}
         />
         <Route
-          path='/logout/'
+          path="/logout/"
           render={props => {
             localStorage.clear();
-            return <Redirect to='/login' />;
+            return <Redirect to="/login" />;
           }}
         />
 
-        <PrivateRoute path='/pokemonlist' component={PokemonList} />
+        <PrivateRoute path="/pokemonlist" component={PokemonList} />
       </>
     );
   }
 }
-
+const listStyle = styled.li`
+  list-style: none;
+`;
 const SignUpImg2 = styled.img`
   width: 150px;
 `;
