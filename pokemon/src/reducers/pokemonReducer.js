@@ -52,7 +52,7 @@ export const pokemonReducer = (state = initialState, action) => {
           if (poke.Name === action.payload) {
             return {
               ...poke,
-              selected: !state.selected
+              selected: true
             };
           }
           return poke;
@@ -62,7 +62,7 @@ export const pokemonReducer = (state = initialState, action) => {
     case POKE_COMPARE:
       return {
         ...state,
-        tasks: state.tasks.filter(task => task.id !== action.payload)
+        pokemon: state.pokemon.filter(poke => poke.selected)
       };
 
     default:

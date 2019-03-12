@@ -1,16 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
-import { pokeSelect } from '../actions';
+import { pokeSelect, pokeCompare } from '../actions';
 
 const PokemonList = props => {
   console.log('SELECTED', props);
   return (
     <>
       <SearchBar />
-      {!props.selected ? null : (
-        <button onClick={props.pokeCompare}>Compare Pokemon</button>
-      )}
+      <button onClick={props.pokeCompare}>Compare Pokemon</button>
 
       <ul>
         {props.pokemon.map(poke => {
@@ -19,7 +17,7 @@ const PokemonList = props => {
               <li>
                 Name: {poke.Name}{' '}
                 <input
-                  onClick={() => props.pokeSelect(poke)}
+                  onClick={() => props.pokeSelect(poke.Name)}
                   type="checkbox"
                   id="selected"
                 />
@@ -50,5 +48,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { pokeSelect }
+  { pokeSelect, pokeCompare }
 )(PokemonList);

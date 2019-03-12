@@ -70,3 +70,9 @@ export const pokeSelect = name => {
     payload: name
   };
 };
+
+export const pokeCompare = () => {
+  return {
+    type: POKE_COMPARE
+  };
+};
