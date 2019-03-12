@@ -6,13 +6,18 @@ const SearchBar = props => {
     const [search, setSearch] = useState('');
 
     return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            props.searchPokemon(search)
-            setSearch('');
-        }}>
-            <input type="text" onChange={e => setSearch(e.target.value)} value={search} placeholder="&#x1F50D;Search"/>
-            <button >click me</button>
+        <form>
+            <input 
+                type="text"
+                onChange={(e) => {
+                    e.preventDefault();
+                    setSearch(e.target.value)
+                    props.searchPokemon(search)
+                    
+                }} 
+                value={search}
+                placeholder="&#x1F50D;Search"
+                />
         </form>
     );
 };

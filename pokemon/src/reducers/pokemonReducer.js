@@ -2,6 +2,7 @@ import { GET_SUCCESS, ADD_SUCCESS, DEL_SUCCESS, PUT_SUCCESS, SEARCH_POKEMON } fr
 
 const initialState = {
   pokemon: [],
+  filtered: [],
   getting: false,
   error: ''
 };
@@ -31,7 +32,7 @@ export const pokemonReducer = (state = initialState, action) => {
     case SEARCH_POKEMON:
       return {
         ...state,
-        pokemon: state.pokemon.filter(poke => poke.Name.includes(action.payload))
+        filtered: state.pokemon.filter(poke => poke.Name.includes(action.payload))
       }
 
     default:
