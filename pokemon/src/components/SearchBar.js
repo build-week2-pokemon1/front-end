@@ -27,6 +27,7 @@ const mapStateToProps = state => ({
 });
 
 const Input1 = styled.input`
+  font-family: 'Sniglet', cursive;
   padding-top: 30px;
   border-style: none;
   font-size: 30px;

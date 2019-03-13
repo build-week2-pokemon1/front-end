@@ -51,6 +51,7 @@ const Container = styled.div`
 `;
 
 const Input1 = styled.input`
+  font-family: 'Sniglet', cursive;
   padding-top: 30px;
   border-style: none;
   font-size: 30px;
@@ -66,6 +67,7 @@ const Input1 = styled.input`
 `;
 
 const Input2 = styled.input`
+  font-family: 'Sniglet', cursive;
   border-style: none;
   font-size: 30px;
   font-weight: bold;

@@ -58,6 +58,7 @@ const Input1 = styled.input`
   background-color: white;
   box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
   border-radius: 5px;
+  font-family: 'Sniglet', cursive;
 `;
 
 const Input2 = styled.input`
@@ -72,6 +73,7 @@ const Input2 = styled.input`
   margin-top: 10px;
   padding-top: 25px;
   border-radius: 5px;
+  font-family: 'Sniglet', cursive;
 `;
 
 const Button1 = styled.button`
