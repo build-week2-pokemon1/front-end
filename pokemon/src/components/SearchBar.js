@@ -33,10 +33,13 @@ const Input1 = styled.input`
   font-weight: bold;
   display: block;
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
 
   border-bottom: 1px solid black;
+  background-color: white;
 `;
 
 export default connect(

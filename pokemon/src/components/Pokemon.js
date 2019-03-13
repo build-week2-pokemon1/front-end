@@ -11,10 +11,14 @@ const IndPokemon = styled.div`
   padding: 10px;
   overflow: hidden;
 
+  background-color: white;
+  box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
+
   &:hover {
       transform: scale(1.05);
   }
-`;
+
+;
 const TopRow = styled.div`
   display: flex;
   height: 20%;
