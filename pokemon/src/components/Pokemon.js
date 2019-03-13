@@ -21,7 +21,7 @@ const IndPokemon = styled.div`
 const TopRow = styled.div`
   display: flex;
   height: 20%;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: center;
 `;
