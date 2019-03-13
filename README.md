@@ -1,12 +1,12 @@
-##Front-end - Build week 2 React module
+## Front-end - Build week 2 React module
 
 
-####What this app does:
+#### What this app does:
 
 This app is the Pokemon Master's Pokedex for 2019... maybe even 2020! It is a front end for an API with over 800 Pokemon and their stats. Our app even lets users search for specific Pokemon and compare them with a few simple clicks.
 
 
-####Tech stack
+#### Tech stack
 	1. React
 	2. Redux
 	3. Axios
@@ -18,7 +18,7 @@ This app is the Pokemon Master's Pokedex for 2019... maybe even 2020! It is a fr
 	9. React-loader-spinner
 	10. Tokens
 
-####Getting started
+#### Getting started
 
 	1. Clone the respository
 	2. Run yarn install in the pokemon directory
@@ -28,10 +28,10 @@ This app is the Pokemon Master's Pokedex for 2019... maybe even 2020! It is a fr
 	6. Catch Pokemon
 	7. Profit
 
-####Who built this magic?
+#### Who built this magic?
 	Jonas Walden: https://github.com/UnknownMonk
 	Kory Newton: https://github.com/korynewton
 	Gill Abada: https://github.com/gabada
 
-####Where can I see more from this team?
+#### Where can I see more from this team?
 	https://github.com/build-week2-pokemon1
