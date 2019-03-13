@@ -6,10 +6,12 @@ const IndPokemon = styled.div`
   position: relative;
   border: 2px solid black;
   width: 45%;
-  height: 100px;
   margin: 5px;
   /* padding: 10px; */
-  /* overflow: hidden; */
+  overflow: hidden;
+  font-family: 'Sniglet', cursive;
+
+
 
   background-color: white;
   box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
@@ -29,6 +31,7 @@ const BottomRow = styled.div`
   display: flex;
   height: 80%;
   justify-content: space-around;
+  margin-left:20%;
 `;
 const PokeStats = styled.div`
   display: flex;
@@ -39,9 +42,9 @@ const PokeStats = styled.div`
 `;
 const PokeBallImg = styled.img`
   position: absolute;
-  left: -80px;
+  left: -140px;
   opacity: 0.6;
-  width: 20%;
+  width: 40%;
   height: auto;
   overflow: hidden;
 `;
@@ -197,8 +200,8 @@ const Pokemon = props => {
           <Ph5>
             <strong>Legendary: </strong> {`${props.pokemon.Legendary}`}{' '}
           </Ph5>
-          <PokeImage src={props.pokemon.Img} />
         </PokeStats>
+        <PokeImage src={props.pokemon.Img} />
       </BottomRow>
     </IndPokemon>
   );
