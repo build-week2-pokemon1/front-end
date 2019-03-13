@@ -13,6 +13,8 @@ const IndPokemon = styled.div`
   margin: 5px;
   padding: 10px;
   overflow: hidden;
+  background-color: white;
+  box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
 `;
 const TopRow = styled.div`
   display: flex;

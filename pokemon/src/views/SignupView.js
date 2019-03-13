@@ -58,7 +58,11 @@ const Input1 = styled.input`
   display: block;
   text-align: center;
   margin: 0 auto;
+
   border-bottom: 1px solid black;
+  background-color: white;
+  box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
+  border-radius: 5px;
 `;
 
 const Input2 = styled.input`
@@ -68,6 +72,11 @@ const Input2 = styled.input`
   margin-left: 90px;
   text-align: center;
   border-bottom: 1px solid black;
+  background-color: white;
+  box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
+  margin-top: 10px;
+  padding-top: 25px;
+  border-radius: 5px;
 `;
 
 const Button1 = styled.button`
@@ -77,13 +86,12 @@ const Button1 = styled.button`
   border-style: none;
   background-image: url(${PokeBall});
   background-size: cover;
-  background-color: white;
+  background-color: lightblue;
   margin: 10px;
 `;
 
 const SignUpImg = styled.img`
   width: 50px;
 `;
-
 
 export default withRouter(Signup);
