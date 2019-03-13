@@ -14,7 +14,7 @@ export const SIGNUP = 'SIGNUP';
 export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
 
-const pokemonUrl = 'http://localhost:5000';
+const pokemonUrl = 'https://pokemon-backend-lsbw.herokuapp.com';
 
 export const signUp = credentials => dispatch => {
   dispatch({ type: SIGNUP });
@@ -38,7 +38,7 @@ export const signUp = credentials => dispatch => {
 export const login = credentials => dispatch => {
   dispatch({ type: LOGIN });
   return axios()
-    .post(`${pokemonUrl}/api/login`, credentials)
+    .put(`${pokemonUrl}/api/login`, credentials)
     .then(res => {
       localStorage.setItem('token', res.data.payload);
       dispatch({
@@ -58,7 +58,7 @@ export const catchPokemon = () => {
   return dispatch => {
     dispatch({ type: GET_LOADING });
     axios()
-      .get(`${pokemonUrl}/api/pokemon`)
+      .get(`${pokemonUrl}/pokemon`)
       .then(res => {
         dispatch({
           type: GET_SUCCESS,
@@ -79,7 +79,7 @@ export const pokeReset = () => {
   return dispatch => {
     dispatch({ type: GET_LOADING });
     axios()
-      .get(`${pokemonUrl}/api/pokemon`)
+      .get(`${pokemonUrl}/pokemon`)
       .then(res => {
         dispatch({
           type: GET_SUCCESS,
