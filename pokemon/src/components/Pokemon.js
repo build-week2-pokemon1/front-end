@@ -5,18 +5,20 @@ import PokeBallCard from '../img/pokeballcard.png';
 const IndPokemon = styled.div`
   position: relative;
   border: 2px solid black;
-  width: 80%;
-  height: 150px;
+  width: 45%;
   margin: 5px;
-  padding: 10px;
+  /* padding: 10px; */
   overflow: hidden;
+  font-family: 'Sniglet', cursive;
+
+
 
   background-color: white;
   box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
 
-  &:hover {
+  /* &:hover {
     transform: scale(1.05);
-  }
+  } */
 `;
 const TopRow = styled.div`
   display: flex;
@@ -29,18 +31,20 @@ const BottomRow = styled.div`
   display: flex;
   height: 80%;
   justify-content: space-around;
+  margin-left:20%;
 `;
 const PokeStats = styled.div`
   display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   width: 70%;
-  flex-flow: column wrap;
   /* border: 1px solid red; */
 `;
 const PokeBallImg = styled.img`
   position: absolute;
-  left: -80px;
+  left: -140px;
   opacity: 0.6;
-  width: 20%;
+  width: 40%;
   height: auto;
   overflow: hidden;
 `;
@@ -128,6 +132,7 @@ const TypeDiv = styled.div`
 `;
 
 const Ph5 = styled.h5`
+  margin: 0;
   font-weight: 400;
   color: ${props => (props.speed >= 100 ? 'red' : null)};
   font-weight: ${props => (props.speed >= 100 ? 800 : null)};
@@ -195,8 +200,8 @@ const Pokemon = props => {
           <Ph5>
             <strong>Legendary: </strong> {`${props.pokemon.Legendary}`}{' '}
           </Ph5>
-          <PokeImage src={props.pokemon.Img} />
         </PokeStats>
+        <PokeImage src={props.pokemon.Img} />
       </BottomRow>
     </IndPokemon>
   );
