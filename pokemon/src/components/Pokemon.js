@@ -81,14 +81,50 @@ const TypeDiv = styled.div`
       } else if (props.type === 'Dragon') {
         return 'red';
       }
-    }}
+    }};
     font-size:18px;
-    border: ${props => (props.type === 'Normal' ? '1px solid black' : null)} 
+    border: ${props => (props.type === 'Normal' ? '1px solid black' : null)}; 
     height: 30px;
     width: 70px;
     border-radius: 5px;
-    color: black;
-    text-align: center;
+    color: ${props => {
+      if (props.type === 'Grass') {
+        return 'black';
+      } else if (props.type === 'Poison') {
+        return 'white';
+      } else if (props.type === 'Water') {
+        return 'white';
+      } else if (props.type === 'Fire') {
+        return 'black';
+      } else if (props.type === 'Bug') {
+        return 'black';
+      } else if (props.type === 'Normal') {
+        return 'black';
+      } else if (props.type === 'Flying' || props.type === 'Ice') {
+        return 'black';
+      } else if (props.type === 'Electric') {
+        return 'black';
+      } else if (props.type === 'Ground') {
+        return 'white';
+      } else if (props.type === 'Fairy') {
+        return 'black';
+      } else if (props.type === 'Psychic') {
+        return 'black';
+      } else if (props.type === 'Fighting') {
+        return 'black';
+      } else if (props.type === 'Rock') {
+        return 'white';
+      } else if (props.type === 'Ghost') {
+        return 'white';
+      } else if (props.type === 'Steel') {
+        return 'white';
+      } else if (props.type === 'Dragon') {
+        return 'white';
+      }
+    }};
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const Ph5 = styled.h5`
@@ -98,7 +134,7 @@ const Ph5 = styled.h5`
 `;
 
 const PokeImage = styled.img`
-  width: 150px;
+  /* width: 150px; */
 `;
 const Pokemon = props => {
   return (
