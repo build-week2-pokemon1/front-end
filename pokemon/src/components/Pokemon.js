@@ -17,7 +17,7 @@ const IndPokemon = styled.div`
   &:hover {
       transform: scale(1.05);
   }
-
+`
 ;
 const TopRow = styled.div`
   display: flex;
