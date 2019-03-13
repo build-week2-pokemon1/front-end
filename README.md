@@ -1,5 +1,7 @@
 # front-end
 FrontEnd React App - Jonas Walden, Kory Newton, Gill Abada
+
+
 This app uses React.js Redux and thunk to make Api calls to a mongoDb data base and retrieve information about pokemon.
 
 This app has search functionality and the ability to compare pokemon cards to one another.
