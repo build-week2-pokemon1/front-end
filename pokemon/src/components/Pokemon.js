@@ -51,7 +51,7 @@ const Pokemon = props => {
       <TopRow>
         <h4>Name: {props.pokemon.Name}</h4>
         <TopRow>
-          <h5>Select</h5>
+          <h5>Compare</h5>
           <input
             onClick={() => props.pokeSelect(props.pokemon.Name)}
             type="checkbox"
