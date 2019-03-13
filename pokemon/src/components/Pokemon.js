@@ -81,9 +81,9 @@ const TypeDiv = styled.div`
       } else if (props.type === 'Dragon') {
         return 'red';
       }
-    }}
+    }};
     font-size:18px;
-    border: ${props => (props.type === 'Normal' ? '1px solid black' : null)} 
+    border: ${props => (props.type === 'Normal' ? '1px solid black' : null)}; 
     height: 30px;
     width: 70px;
     border-radius: 5px;
