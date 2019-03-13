@@ -63,7 +63,8 @@ export const pokemonReducer = (state = initialState, action) => {
     case POKE_COMPARE:
       return {
         ...state,
-        pokemon: state.pokemon.filter(poke => poke.selected)
+        pokemon: state.pokemon.filter(poke => poke.selected),
+        filtered: state.pokemon.filter(poke => poke.selected)
       };
     default:
       return state;
