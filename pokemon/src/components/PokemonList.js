@@ -15,7 +15,8 @@ import ResetBtn from '../img/reset.png';
 
 const PokemonContainer = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
   align-items: center;
 `;
 
