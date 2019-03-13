@@ -33,6 +33,7 @@ const BottomRow = styled.div`
 const PokeStats = styled.div`
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
   width: 70%;
   /* border: 1px solid red; */
 `;
@@ -128,6 +129,7 @@ const TypeDiv = styled.div`
 `;
 
 const Ph5 = styled.h5`
+  margin: 0;
   font-weight: 400;
   color: ${props => (props.speed >= 100 ? 'red' : null)};
   font-weight: ${props => (props.speed >= 100 ? 800 : null)};
