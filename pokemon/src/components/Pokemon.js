@@ -46,7 +46,41 @@ const PokeBallImg = styled.img`
 
 const TypeDiv = styled.div`
     border: 1px solid black;
-    background: ${props => (props.type === 'Grass' ? 'green' : 'pink')} 
+    /* background: ${props => (props.type === 'Grass' ? 'green' : 'pink')}  */
+    background: ${props => {
+        if (props.type === 'Grass') {
+            return 'green'
+        } else if (props.type === 'Poison') {
+            return 'purple'
+        } else if (props.type === 'Water') {
+            return 'blue'
+        } else if (props.type === 'Fire') {
+            return 'orange'
+        } else if (props.type === 'Bug') {
+            return 'pink'
+        } else if (props.type === 'Normal') {
+            return 'white'
+        } else if (props.type === 'Flying' || props.type === 'Ice') {
+            return 'Cyan'
+        } else if (props.type === 'Electric') {
+            return 'yellow'
+        } else if (props.type === 'Ground') {
+            return 'brown'
+        } else if (props.type === 'Fairy') {
+            return 'AliceBlue'
+        } else if (props.type === 'Psychic') {
+            return 'grey'
+        } else if (props.type === 'Fighting') {
+            return 'Coral'
+        } else if (props.type === 'Rock') {
+            return 'grey'
+        } else if (props.type === 'Ghost') {
+            return 'grey'
+        } else if (props.type === 'Steel') {
+            return 'grey'
+        }
+    }}
+
     height: 20px;
     width: 40px;
     color: black;
@@ -62,7 +96,7 @@ const Pokemon = props => {
         <h2>{props.pokemon.Name}</h2>
         <TypeDiv type={props.pokemon['Type 1']}>{props.pokemon['Type 1']}</TypeDiv>
         {props.pokemon['Type 2'] &&  (
-            <TypeDiv>{props.pokemon['Type 2']}</TypeDiv>
+            <TypeDiv type={props.pokemon['Type 2']}>{props.pokemon['Type 2']}</TypeDiv>
         )}
         <TopRow>
           <h5>Compare</h5>
