@@ -5,11 +5,11 @@ import PokeBallCard from '../img/pokeballcard.png';
 const IndPokemon = styled.div`
   position: relative;
   border: 2px solid black;
-  width: 20%;
+  width: 45%;
   height: 100px;
   margin: 5px;
   /* padding: 10px; */
-  overflow: hidden;
+  /* overflow: hidden; */
 
   background-color: white;
   box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
@@ -21,7 +21,7 @@ const IndPokemon = styled.div`
 const TopRow = styled.div`
   display: flex;
   height: 20%;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
 `;
@@ -32,8 +32,8 @@ const BottomRow = styled.div`
 `;
 const PokeStats = styled.div`
   display: flex;
+  flex-flow: row wrap;
   width: 70%;
-  flex-flow: column wrap;
   /* border: 1px solid red; */
 `;
 const PokeBallImg = styled.img`
