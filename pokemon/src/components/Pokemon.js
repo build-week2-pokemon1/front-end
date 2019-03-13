@@ -44,12 +44,26 @@ const PokeBallImg = styled.img`
   overflow: hidden;
 `;
 
+const TypeDiv = styled.div`
+    border: 1px solid black;
+    background: ${props => (props.type === 'Grass' ? 'green' : 'pink')} 
+    height: 20px;
+    width: 40px;
+    color: black;
+    text-align: center;
+`
+
 const Pokemon = props => {
   return (
     <IndPokemon>
       <PokeBallImg src={PokeBallCard} alt="pokeball" />
+      
       <TopRow>
-        <h4>Name: {props.pokemon.Name}</h4>
+        <h2>{props.pokemon.Name}</h2>
+        <TypeDiv type={props.pokemon['Type 1']}>{props.pokemon['Type 1']}</TypeDiv>
+        {props.pokemon['Type 2'] &&  (
+            <TypeDiv>{props.pokemon['Type 2']}</TypeDiv>
+        )}
         <TopRow>
           <h5>Compare</h5>
           <input
@@ -59,6 +73,7 @@ const Pokemon = props => {
           />
         </TopRow>
       </TopRow>
+
       <BottomRow>
         <PokeStats>
           <h5>Type 1: {props.pokemon['Type 1']}</h5>
