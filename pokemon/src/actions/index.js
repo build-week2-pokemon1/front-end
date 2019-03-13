@@ -40,10 +40,10 @@ export const login = credentials => dispatch => {
   return axios()
     .put(`${pokemonUrl}/api/login`, credentials)
     .then(res => {
-      localStorage.setItem('token', res.data.payload);
+      localStorage.setItem('token', res.data.token);
       dispatch({
         type: LOGIN_SUCCESS,
-        payload: res.data.payload
+        payload: res.data.token
       });
     })
     .catch(err => {
