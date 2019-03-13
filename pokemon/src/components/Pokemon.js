@@ -133,6 +133,7 @@ const Pokemon = props => {
           <Ph5 speed={props.pokemon.Speed}><strong>Speed: </strong> {props.pokemon.Speed}</Ph5>
           <Ph5><strong>Generation: </strong> {props.pokemon.Generation}</Ph5>
           <Ph5><strong>Legendary: </strong> {`${props.pokemon.Legendary}`} </Ph5>
+          <img src={props.pokemon.Img}/>
         </PokeStats>
       </BottomRow>
     </IndPokemon>
