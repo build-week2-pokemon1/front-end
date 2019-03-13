@@ -5,14 +5,18 @@ import PokeBallCard from '../img/pokeballcard.png';
 const IndPokemon = styled.div`
   position: relative;
 
-  border: 1px solid black;
-  line-height: 0;
+  border: 2px solid black;
+  /* line-height: 0; */
   width: 80%;
   height: 150px;
   text-align: center;
   margin: 5px;
   padding: 10px;
   overflow: hidden;
+
+  &:hover {
+      transform: scale(1.05);
+  }
 `;
 const TopRow = styled.div`
   display: flex;
@@ -44,8 +48,8 @@ const PokeBallImg = styled.img`
   overflow: hidden;
 `;
 
+
 const TypeDiv = styled.div`
-    border: 1px solid black;
     /* background: ${props => (props.type === 'Grass' ? 'green' : 'pink')}  */
     background: ${props => {
         if (props.type === 'Grass') {
@@ -78,14 +82,26 @@ const TypeDiv = styled.div`
             return 'grey'
         } else if (props.type === 'Steel') {
             return 'grey'
+        } else if (props.type === 'Dragon') {
+            return 'red'
         }
     }}
 
-    height: 20px;
-    width: 40px;
+    border: ${props => (props.type === 'Normal' ? '1px solid black' : null)} 
+    height: 30px;
+    width: 70px;
+    border-radius: 5px;
     color: black;
     text-align: center;
 `
+
+const Ph5 = styled.h5`
+    font-weight: 400;
+    color: ${ props => (props.speed >= 100 ? 'red' : null)};
+    font-weight: ${ props => (props.speed >= 100 ? 800 : null)};
+
+`
+
 
 const Pokemon = props => {
   return (
@@ -110,17 +126,15 @@ const Pokemon = props => {
 
       <BottomRow>
         <PokeStats>
-          <h5>Type 1: {props.pokemon['Type 1']}</h5>
-          <h5>Type 2: {props.pokemon['Type 2']}</h5>
-          <h5>Total: {props.pokemon.Total}</h5>
-          <h5>HP: {props.pokemon.HP}</h5>
-          <h5>Attack: {props.pokemon.Attack}</h5>
-          <h5>Defense: {props.pokemon.Defense}</h5>
-          <h5>Special Attack: {props.pokemon['Sp Atk']}</h5>
-          <h5>Special Defense: {props.pokemon['Sp Def']}</h5>
-          <h5>Speed: {props.pokemon.Speed}</h5>
-          <h5>Generation: {props.pokemon.Generation}</h5>
-          <h5>Legendary: {`${props.pokemon.Legendary}`} </h5>
+          <Ph5><strong>Total: </strong>{props.pokemon.Total}</Ph5>
+          <Ph5><strong>HP: </strong>{props.pokemon.HP}</Ph5>
+          <Ph5><strong>Attack: </strong>{props.pokemon.Attack}</Ph5>
+          <Ph5><strong>Defense: </strong>{props.pokemon.Defense}</Ph5>
+          <Ph5><strong>Special Attack: </strong>{props.pokemon['Sp Atk']}</Ph5>
+          <Ph5><strong>Special Defense: </strong> {props.pokemon['Sp Def']}</Ph5>
+          <Ph5 speed={props.pokemon.Speed}><strong>Speed: </strong> {props.pokemon.Speed}</Ph5>
+          <Ph5><strong>Generation: </strong> {props.pokemon.Generation}</Ph5>
+          <Ph5><strong>Legendary: </strong> {`${props.pokemon.Legendary}`} </Ph5>
         </PokeStats>
       </BottomRow>
     </IndPokemon>
