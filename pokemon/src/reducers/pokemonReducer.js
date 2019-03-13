@@ -35,7 +35,8 @@ export const pokemonReducer = (state = initialState, action) => {
         ...state,
         pokemon: action.payload,
         getting: false,
-        error: ''
+        error: '',
+        selected: false
       };
     case SEARCH_POKEMON:
       return {
