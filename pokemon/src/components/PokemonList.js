@@ -38,12 +38,12 @@ class PokemonList extends Component {
             </Resetbtn>
           </div>
         )}
-
+        {this.props.error && <h3>{this.props.error}</h3>}
+        {this.props.getting && (
+          <Loader type="Puff" color="#ff1f1f" height="400" width="400" />
+        )}
         <PokemonContainer>
-          {this.props.error && <h3>{this.props.error}</h3>}
-          {this.props.getting && (
-            <Loader type="Puff" color="#ff1f1f" height="400" width="400" />
-          )}
+
 
           {this.props.filtered.length !== 0
             ? this.props.filtered.map(poke => (
