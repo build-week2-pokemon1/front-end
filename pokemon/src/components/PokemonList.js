@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import Compare from '../img/compare.png';
 import Pokeball from '../img/Balls.png';
 import './PokemonList.css';
+import ResetBtn from '../img/reset.png';
 
 const PokemonContainer = styled.div`
   display: flex;
@@ -28,10 +29,12 @@ class PokemonList extends Component {
         <SearchBar />
         {this.props.selected && (
           <div>
-          <Button1 onClick={this.props.pokeCompare}>
-            <Compare1 src={Compare} alt="Compare" />
-          </Button1>
-          <button onClick={this.props.pokeReset}>RESET_Placeholder</button>
+            <Button1 onClick={this.props.pokeCompare}>
+              <Compare1 src={Compare} alt="Compare" />
+            </Button1>
+            <Resetbtn onClick={this.props.pokeReset}>
+              <Resetimg src={ResetBtn} alt="" />
+            </Resetbtn>
           </div>
         )}
 
@@ -78,6 +81,15 @@ PokemonList.prototypes = {
   selected: PropTypes.boolean
 };
 
+const Resetimg = styled.img`
+  width: 150px;
+`;
+
+const Resetbtn = styled.button`
+  border-style: none;
+  background-color: transparent;
+`;
+
 const Button1 = styled.button`
   border-radius: 50%;
   width: 250px;
@@ -85,7 +97,7 @@ const Button1 = styled.button`
   border-style: none;
   background-image: url(${Pokeball});
   background-size: cover;
-  background-color: white;
+  background-color: lightblue;
   margin: 10px;
   cursor: pointer;
 `;
