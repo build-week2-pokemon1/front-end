@@ -1,16 +1,37 @@
-# front-end
-FrontEnd React App - Jonas Walden, Kory Newton, Gill Abada
+##Front-end - Build week 2 React module
 
 
-This app uses React.js Redux and thunk to make Api calls to a mongoDb data base and retrieve information about pokemon.
+####What this app does:
 
-This app has search functionality and the ability to compare pokemon cards to one another.
-
-
-We have also implemented a login page and a sign up page using a secure token to access the pokemon API.
+This app is the Pokemon Master's Pokedex for 2019... maybe even 2020! It is a front end for an API with over 800 Pokemon and their stats. Our app even lets users search for specific Pokemon and compare them with a few simple clicks.
 
 
-All the styles were done using styled components and hooks were used for the forms error handling was also implemented.
+####Tech stack
+	1. React
+	2. Redux
+	3. Axios
+	4. Thunk
+	5. React-Router
+	6. Styled-Components
+	7. React-Hooks
+	8. Proptypes
+	9. React-loader-spinner
+	10. Tokens
 
+####Getting started
 
-This app represents all and more of the tools we learned here at lambda school in the react portion of the course.
+	1. Clone the respository
+	2. Run yarn install in the pokemon directory
+	3. Run yarn start in the pokemon directory
+	4. Sign up
+	5. Login
+	6. Catch Pokemon
+	7. Profit
+
+####Who built this magic?
+	Jonas Walden: https://github.com/UnknownMonk
+	Kory Newton: https://github.com/korynewton
+	Gill Abada: https://github.com/gabada
+
+####Where can I see more from this team?
+	https://github.com/build-week2-pokemon1
