@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import SearchBar from './SearchBar';
 import Pokemon from './Pokemon';
 
-import { pokeSelect, pokeCompare, catchPokemon } from '../actions';
+import { catchPokemon, pokeCompare, pokeReset, pokeSelect } from '../actions';
 import PropTypes from 'prop-types';
 import Compare from '../img/compare.png';
 import Pokeball from '../img/Balls.png';
@@ -27,9 +27,12 @@ class PokemonList extends Component {
       <>
         <SearchBar />
         {this.props.selected && (
+          <div>
           <Button1 onClick={this.props.pokeCompare}>
             <Compare1 src={Compare} alt="Compare" />
           </Button1>
+          <button onClick={this.props.pokeReset}>RESET_Placeholder</button>
+          </div>
         )}
 
         <PokemonContainer>
@@ -93,5 +96,5 @@ const Compare1 = styled.img`
 
 export default connect(
   mapStateToProps,
-  { catchPokemon, pokeSelect, pokeCompare }
+  { catchPokemon, pokeCompare, pokeReset, pokeSelect }
 )(PokemonList);
