@@ -4,12 +4,9 @@ import PokeBallCard from '../img/pokeballcard.png';
 
 const IndPokemon = styled.div`
   position: relative;
-
   border: 2px solid black;
-  /* line-height: 0; */
   width: 80%;
   height: 150px;
-  text-align: center;
   margin: 5px;
   padding: 10px;
   overflow: hidden;
@@ -22,7 +19,7 @@ const TopRow = styled.div`
   display: flex;
   height: 20%;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 `;
 const BottomRow = styled.div`
@@ -34,10 +31,7 @@ const PokeStats = styled.div`
   display: flex;
   width: 70%;
   flex-flow: column wrap;
-
-  /* && {
-        border: 1px solid black;
-    } */
+  /* border: 1px solid red; */
 `;
 const PokeBallImg = styled.img`
   position: absolute;
@@ -53,7 +47,7 @@ const TypeDiv = styled.div`
     /* background: ${props => (props.type === 'Grass' ? 'green' : 'pink')}  */
     background: ${props => {
         if (props.type === 'Grass') {
-            return 'green'
+            return 'lightgreen'
         } else if (props.type === 'Poison') {
             return 'purple'
         } else if (props.type === 'Water') {
@@ -73,7 +67,7 @@ const TypeDiv = styled.div`
         } else if (props.type === 'Fairy') {
             return 'AliceBlue'
         } else if (props.type === 'Psychic') {
-            return 'grey'
+            return 'pink'
         } else if (props.type === 'Fighting') {
             return 'Coral'
         } else if (props.type === 'Rock') {
@@ -86,7 +80,7 @@ const TypeDiv = styled.div`
             return 'red'
         }
     }}
-
+    font-size:18px;
     border: ${props => (props.type === 'Normal' ? '1px solid black' : null)} 
     height: 30px;
     width: 70px;
