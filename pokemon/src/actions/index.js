@@ -75,6 +75,23 @@ export const searchPokemon = e => dispatch => {
   dispatch({ type: SEARCH_POKEMON, payload: e });
 };
 
+export const pokeReset = () => {
+  return dispatch => {
+    dispatch({ type: GET_LOADING });
+    axios()
+      .get(`${pokemonUrl}/api/pokemon`)
+      .then(res => {
+        dispatch({
+          type: GET_SUCCESS,
+          payload: res.data
+        });
+      })
+      .catch(err => {
+        dispatch({ type: GET_FAILURE, payload: err.message });
+      });
+  };
+};
+
 export const pokeSelect = name => {
   return {
     type: POKE_SELECT,
