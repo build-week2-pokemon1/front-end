@@ -5,5 +5,5 @@ command = "yarn build"
 
 
 [redirects]
-'/home'              '/'
-'/pokemonList'  '/pokemonList'
+/home              /
+/pokemonList  /pokemonList
