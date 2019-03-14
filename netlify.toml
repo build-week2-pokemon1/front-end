@@ -6,4 +6,4 @@ command = "yarn build"
 
 [[redirects]]
 from = "/pokemonList"
-to = "/"
+to = "/login"
