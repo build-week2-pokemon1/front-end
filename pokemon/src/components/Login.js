@@ -74,6 +74,10 @@ const Input2 = styled.input`
   padding-top: 25px;
   border-radius: 5px;
   font-family: 'Sniglet', cursive;
+
+  @media (max-width: 500px) {
+    margin: 20px auto;
+  }
 `;
 
 const Button1 = styled.button`
@@ -85,10 +89,20 @@ const Button1 = styled.button`
   background-size: cover;
   background-color: lightblue;
   margin: 10px;
+
+  @media (max-width: 400px) {
+    border-radius: 50%;
+    width: 105px;
+    height: 105px;
+  }
 `;
 
 const LoginImg = styled.img`
   width: 50px;
+
+  @media (max-width: 400px) {
+    width: 80px;
+  }
 `;
 
 export default withRouter(LoginPage);
