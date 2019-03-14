@@ -1,0 +1,4 @@
+[build]
+base = "pokemon/"
+publish = "pokemon/build/"
+command = "yarn build"
