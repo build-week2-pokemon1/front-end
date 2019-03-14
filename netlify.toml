@@ -4,5 +4,6 @@ publish = "pokemon/build/"
 command = "yarn build"
 
 
-/home              /
-/pokemonList  /pokemonList
+[redirects]
+'/home'              '/'
+'/pokemonList'  '/pokemonList'
