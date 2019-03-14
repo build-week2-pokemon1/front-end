@@ -3,12 +3,12 @@ base = "pokemon/"
 publish = "pokemon/build/"
 command = "yarn build"
 
-
-[[redirects]]
-from = "/home"
+redirects = [
+{ from = "/home"
 to = "/"
-status = 200
+status = 200 },
 
-from = "/pokemonList"
+{ from = "/pokemonList"
 to = "/login"
-status = 200
+status = 200 }
+]
