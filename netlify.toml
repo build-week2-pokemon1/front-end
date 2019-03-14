@@ -3,8 +3,6 @@ base = "pokemon/"
 publish = "pokemon/build/"
 command = "yarn build"
 
-# Redirects from what the browser requests to what we serve
-# /home              /
+
+/home              /
 /pokemonList  /pokemonList
-# /login              /pokemonList
-# /signup              /signup
