@@ -11,3 +11,7 @@ to = "/login"
 [[redirects]]
 from = "/login"
 to = "/"
+
+[[redirects]]
+from = "/signup"
+to = "/"

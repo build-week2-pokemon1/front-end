@@ -40,7 +40,7 @@ class App extends Component {
           </ListStyle>
         </ul>
 
-        <PokeDexImg src={PokeDex} alt="PokeDex" />
+        <Link to="/pokemonlist"><PokeDexImg src={PokeDex} alt="PokeDex" /> </Link>
         <Route
           path="/signup/"
           render={props => (
