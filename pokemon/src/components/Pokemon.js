@@ -6,19 +6,16 @@ const IndPokemon = styled.div`
   position: relative;
   border: 2px solid black;
   width: 45%;
+  height:170px;
+  padding: 10px 0;
   margin: 5px;
-  /* padding: 10px; */
   overflow: hidden;
   font-family: 'Sniglet', cursive;
-
-
-
   background-color: white;
   box-shadow: 2px 7px 28px -1px rgba(13, 79, 186, 0.7);
-
-  /* &:hover {
-    transform: scale(1.05);
-  } */
+  @media (max-width: 700px) {
+    width:95%;
+  }
 `;
 const TopRow = styled.div`
   display: flex;
@@ -26,19 +23,26 @@ const TopRow = styled.div`
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
+  @media (max-width: 700px) {
+    justify-content: space-around;
+    font-size: 10px;
+  }
 `;
 const BottomRow = styled.div`
   display: flex;
+  margin-top: 10px;
   height: 80%;
   justify-content: space-around;
-  margin-left:20%;
+  margin-left:10%;
+  @media (max-width: 700px) {
+    justify-content: space-around;
+  }
 `;
 const PokeStats = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   width: 70%;
-  /* border: 1px solid red; */
 `;
 const PokeBallImg = styled.img`
   position: absolute;
@@ -47,6 +51,9 @@ const PokeBallImg = styled.img`
   width: 40%;
   height: auto;
   overflow: hidden;
+  @media (max-width: 800px) {
+    display:none;
+  }
 `;
 
 const TypeDiv = styled.div`
@@ -129,6 +136,11 @@ const TypeDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 700px) {
+      font-size:10px;
+      width:40px;
+      height:20px;
+    }
 `;
 
 const Ph5 = styled.h5`
@@ -139,7 +151,7 @@ const Ph5 = styled.h5`
 `;
 
 const PokeImage = styled.img`
-  /* width: 150px; */
+  
 `;
 const Pokemon = props => {
   return (
