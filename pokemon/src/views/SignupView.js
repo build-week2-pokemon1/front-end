@@ -46,7 +46,7 @@ const Signup = props => {
 };
 
 const Container = styled.div`
-  width: 40%;
+  width: 100%;
   margin: 0 auto;
 `;
 
@@ -79,6 +79,11 @@ const Input2 = styled.input`
   margin-top: 10px;
   padding-top: 25px;
   border-radius: 5px;
+
+  @media (max-width: 500px) {
+    margin: 20px auto;
+    display: block;
+  }
 `;
 
 const Button1 = styled.button`
@@ -90,10 +95,20 @@ const Button1 = styled.button`
   background-size: cover;
   background-color: lightblue;
   margin: 10px;
+
+  @media (max-width: 500px) {
+    border-radius: 50%;
+    width: 105px;
+    height: 105px;
+  }
 `;
 
 const SignUpImg = styled.img`
   width: 50px;
+
+  @media (max-width: 500px) {
+    width: 80px;
+  }
 `;
 
 export default withRouter(Signup);

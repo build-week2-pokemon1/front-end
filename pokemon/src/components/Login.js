@@ -77,6 +77,7 @@ const Input2 = styled.input`
 
   @media (max-width: 500px) {
     margin: 20px auto;
+    display: block;
   }
 `;
 
@@ -90,7 +91,7 @@ const Button1 = styled.button`
   background-color: lightblue;
   margin: 10px;
 
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     border-radius: 50%;
     width: 105px;
     height: 105px;
@@ -100,7 +101,7 @@ const Button1 = styled.button`
 const LoginImg = styled.img`
   width: 50px;
 
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     width: 80px;
   }
 `;
