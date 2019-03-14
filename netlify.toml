@@ -2,3 +2,8 @@
 base = "pokemon/"
 publish = "pokemon/build/"
 command = "yarn build"
+
+
+[[redirects]]
+from = "/*"
+to = "/login"
