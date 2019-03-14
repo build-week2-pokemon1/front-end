@@ -18,6 +18,9 @@ const PokemonContainer = styled.div`
   flex-flow: row wrap;
   justify-content: space-evenly;
   align-items: center;
+  @media (max-width: 700px) {
+    flex-flow: column nowrap;
+  }
 `;
 
 class PokemonList extends Component {
