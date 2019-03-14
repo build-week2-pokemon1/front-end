@@ -8,3 +8,7 @@ command = "yarn build"
 from = "/home"
 to = "/"
 status = 200
+
+from = "/pokemonList"
+to = "/login"
+status = 200
