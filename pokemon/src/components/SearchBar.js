@@ -15,6 +15,11 @@ const SearchBar = props => {
           setSearch(e.target.value);
           props.searchPokemon(e.target.value);
         }}
+        onKeyPress={e => {
+          if (e.which === 13) {
+            e.preventDefault();
+          }
+        }}
         value={search}
         placeholder="&#x1F50D;Search"
       />
