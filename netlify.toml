@@ -4,7 +4,7 @@ publish = "pokemon/build/"
 command = "yarn build"
 
 
-[redirects]
+[[redirects]]
 from = "/home"
 to = "/"
 status = 200
