@@ -5,5 +5,5 @@ command = "yarn build"
 
 
 [[redirects]]
-from = "/*"
+from = "/pokemonList"
 to = "/"
