@@ -554,7 +554,7 @@ let pokemon = [
   },
   {
     "Num": 29,
-    "Name": "Nidoran‚ôÄ",
+    "Name": "Nidoran‚&#9794",
     "Type 1": "Poison",
     "Type 2": "",
     "Total": 275,
@@ -602,7 +602,7 @@ let pokemon = [
   },
   {
     "Num": 32,
-    "Name": "Nidoran‚ôÇ",
+    "Name": "Nidoran‚&#9792",
     "Type 1": "Poison",
     "Type 2": "",
     "Total": 273,
